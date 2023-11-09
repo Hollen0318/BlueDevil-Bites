@@ -17,6 +17,7 @@ struct Place: Codable, Identifiable {
     var place_id: String
     var location: String
     var phone: String?
+    var picture: String?
     
     enum CodingKeys: String, CodingKey {
         case isOpen = "open"
@@ -63,5 +64,30 @@ struct Place: Codable, Identifiable {
         try container.encode(place_id, forKey: .place_id)
         try container.encode(location, forKey: .location)
         try container.encodeIfPresent(phone, forKey: .phone)
+    }
+}
+
+struct Comment: Codable, Identifiable {
+    let id: Int
+    let restaurantID: Int
+    var content: String
+    var score: Int
+    let time: Date
+
+    enum CodingKeys: String, CodingKey {
+        case id = "Comment_ID"
+        case restaurantID = "Restaurant_ID"
+        case content = "Comment_Content"
+        case score = "Comment_Score"
+        case time = "Comment_Time"
+    }
+
+    // Ensure the score remains within the 1...5 range
+    init(id: Int, restaurantID: Int, content: String, score: Int, time: Date) {
+        self.id = id
+        self.restaurantID = restaurantID
+        self.content = content
+        self.score = score >= 1 && score <= 5 ? score : 1
+        self.time = time
     }
 }

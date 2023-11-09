@@ -460,7 +460,7 @@ try mockJSON.write(to: tempFileURL)
 placesDataModel.load(dataModelFileURL: tempFileURL)
 
 for place in placesDataModel.places {
-    print(place.name)
+    print(place.location)
 }
 
 // Cleanup after test
