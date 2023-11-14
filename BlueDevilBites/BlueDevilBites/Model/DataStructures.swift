@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 // Define a struct that represents the data model for the server response
 struct Place: Codable, Identifiable {
@@ -17,7 +18,15 @@ struct Place: Codable, Identifiable {
     var place_id: String
     var location: String
     var phone: String?
-    var picture: String?
+//    Right now we want to store the images into the asset
+//    var picture: String?
+    
+//    var image: UIImage? {
+//        guard let pictureName = picture else { return nil }
+//        guard let base64String = getProcessedBase64ImageString(named: pictureName) else { return nil }
+//        guard let imageData = Data(base64Encoded: base64String) else { return nil }
+//        return UIImage(data: imageData)
+//    }
     
     enum CodingKeys: String, CodingKey {
         case isOpen = "open"
