@@ -10,7 +10,7 @@ import Combine
 
 class PlacesDataModel: ObservableObject {
     @Published var places: [Place] = []
-
+    @Published var searchText: String = ""
     private var dataModelURL: URL {
         guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
             fatalError("Document Directory not found.")

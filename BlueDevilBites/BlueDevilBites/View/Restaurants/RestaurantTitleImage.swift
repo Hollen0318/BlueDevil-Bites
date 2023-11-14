@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct RestaurantTitleImage: View {
+    var imageName: String
+
     var body: some View {
-        ZStack {
-            
-        }
+        Image(imageName)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .cornerRadius(8)
     }
 }
 
 #Preview {
-    RestaurantTitleImage()
+    RestaurantTitleImage(imageName: "Bella Union_1")
 }
