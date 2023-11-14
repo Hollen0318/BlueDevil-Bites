@@ -15,7 +15,7 @@ class PlacesDataModel: ObservableObject {
         guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
             fatalError("Document Directory not found.")
         }
-        return documentDirectory.appendingPathComponent("datamodel.json")
+        return documentDirectory.appendingPathComponent("res.json")
     }
     
     init() {
@@ -33,6 +33,11 @@ class PlacesDataModel: ObservableObject {
         } else {
             save()
         }
+        
+        for (index, var place) in places.enumerated() {
+            place.id = index + 1
+            places[index] = place
+        }
     }
     
     func load(dataModelFileURL: URL) {
@@ -41,6 +46,11 @@ class PlacesDataModel: ObservableObject {
             places = try JSONDecoder().decode([Place].self, from: data)
         } catch {
             print("Error loading data model from specified file: \(error)")
+        }
+        save()
+        for (index, var place) in places.enumerated() {
+            place.id = index + 1
+            places[index] = place
         }
     }
     
@@ -72,8 +82,12 @@ class PlacesDataModel: ObservableObject {
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
             guard let data = data, error == nil else { return }
             do {
-                let downloadedPlaces = try JSONDecoder().decode([Place].self, from: data)
+                var downloadedPlaces = try JSONDecoder().decode([Place].self, from: data)
                 DispatchQueue.main.async {
+                    for (index, var downloadedPlace) in downloadedPlaces.enumerated() {
+                        downloadedPlace.id = index + 1
+                        downloadedPlaces[index] = downloadedPlace
+                    }
                     self?.places = downloadedPlaces
                     self?.save()
                 }

@@ -10,7 +10,7 @@ import SwiftUI
 
 // Define a struct that represents the data model for the server response
 struct Place: Codable, Identifiable {
-    var id: String { place_id }
+    var id: Int // Explicitly declare the id property
     var isOpen: Bool
     var name: String
     var tags: [String]
@@ -53,6 +53,7 @@ struct Place: Codable, Identifiable {
     // Custom initializer for decoding
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = 0 // or some other default value
         let isOpenString = try container.decode(String.self, forKey: .isOpen)
         isOpen = (isOpenString as NSString).boolValue // Using NSString conversion
         name = try container.decode(String.self, forKey: .name)

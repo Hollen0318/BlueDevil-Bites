@@ -13,11 +13,7 @@ struct RestaurantDetail: View {
     @State private var restaurantToView: Place? = nil
     var body: some View {
         VStack(alignment:.center, spacing: 10) {
-//            if let image = restaurantToView.image! {
-//                
-//            } else {
-//                
-//            }
+
         }
     }
 }
