@@ -123,4 +123,11 @@ class ResDataModel: ObservableObject {
             print("Loading error: \(error)")
         }
     }
+    
+    func uniqueTags() -> [String] {
+        let allTags = restaurants.flatMap { $0.tags }
+        let uniqueTagsArray = Array(Set(allTags)).sorted()
+        print("The uniqueTagsArray = \(uniqueTagsArray[0])")
+        return uniqueTagsArray
+    }
 }

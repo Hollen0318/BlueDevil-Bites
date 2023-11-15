@@ -6,36 +6,58 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct ContentView: View {
     @EnvironmentObject var dataModel: ResDataModel
+    @State private var userLocation = CLLocationCoordinate2D()
+    // You will have to implement location fetching and handle permissions
 
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(dataModel.restaurants, id: \.placeId) { restaurant in
-                    VStack(alignment: .leading) {
-                        Text(restaurant.name)
-                            .font(.headline)
-                        Text("Status: \(restaurant.isOpen ? "Open" : "Closed")")
-                        Text("Location: \(restaurant.location)")
-                        Text("Phone: \(restaurant.phone!)")
-                        Text("Place ID: \(restaurant.placeIdString)")
-                        Text("Latitude: \(restaurant.position.latitude)")
-                        Text("Longitude: \(restaurant.position.longitude)")
-                        Text("GoogleMap: \(restaurant.position.googleMap ?? "GoogleMap Address Not available")")
-                        // Displaying comments
-                        if let comments = dataModel.comments[restaurant.placeId!] {
-                            ForEach(comments, id: \.username) { comment in
-                                Text("\(comment.username): \(comment.content)")
-                            }
-                        } else {
-                            Text("No Comments Available Yet")
+        ZStack {
+            Image("BlueDevilBitesImage")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
+
+            VStack {
+                Spacer()
+                
+                // Search bar button
+                Button(action: {
+                    // Action to navigate to the search view
+                }) {
+                    HStack {
+                        Image(systemName: "magnifyingglass")
+                        Text("Search")
+                    }
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(10)
+                    .shadow(radius: 2)
+                }
+                .padding(.horizontal)
+                .padding(.top, 20)
+                
+                // Tags list
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(dataModel.uniqueTags().prefix(5), id: \.self) { tag in
+                            TagView(tagName: tag)
                         }
                     }
                 }
+
+                // Featured restaurants
+                VStack {
+                    ForEach(dataModel.restaurants.prefix(2), id: \.placeId) { restaurant in
+                        FeaturedRestaurantView(restaurant: restaurant, userLocation: userLocation)
+                    }
+                }
             }
-            .navigationTitle("BlueDevil Bites")
+        }
+        .onAppear {
+            // Fetch user location
         }
     }
 }
