@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct RestaurantList: View {
-    @EnvironmentObject var dataModel: ResDataModel
+    @EnvironmentObject var resDataModel: ResDataModel
 
     var body: some View {
         NavigationView {
             List {
-                ForEach(dataModel.restaurants, id: \.placeId) { restaurant in
+                ForEach(resDataModel.restaurants, id: \.placeId) { restaurant in
                     VStack(alignment: .leading) {
                         Text(restaurant.name)
                             .font(.headline)
@@ -39,7 +39,7 @@ struct RestaurantList: View {
                             Text("No Tags Available")
                         }
                         // Displaying comments
-                        if let comments = dataModel.comments[restaurant.placeId!] {
+                        if let comments = resDataModel.comments[restaurant.placeId!] {
                             ForEach(comments, id: \.username) { comment in
                                 Text("\(comment.username): \(comment.content)")
                             }

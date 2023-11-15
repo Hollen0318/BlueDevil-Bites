@@ -16,9 +16,12 @@ struct FeaturedRestaurantView: View {
         VStack {
             // Assuming you have a function to get images for the restaurant
             FeatureRestaurantImageView(restaurant: restaurant)
-            Text(restaurant.name)
-                .bold()
-            Text("\(distanceToRestaurant(from: userLocation, restaurant: restaurant)) km")
+            HStack {
+                Text(restaurant.name)
+                    .bold()
+                Spacer()
+                Text("\(distanceToRestaurant(from: userLocation, restaurant: restaurant)) km")
+            }
         }
     }
 

@@ -20,7 +20,7 @@ let streamerDownloadURL = "https://streamer.oit.duke.edu/places/items?tag=west_c
 class ResDataModel: ObservableObject {
     @Published var restaurants: [Res] = []
     @Published var comments: [Int: [CommentData]] = [:]
-
+    @Published var searchText: String = ""
     init() {
         load()
         download()
