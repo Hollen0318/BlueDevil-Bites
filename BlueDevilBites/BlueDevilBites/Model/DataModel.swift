@@ -7,101 +7,84 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
-class PlacesDataModel: ObservableObject {
-    @Published var places: [Place] = []
-    @Published var searchText: String = ""
-    private var dataModelURL: URL {
-        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
-            fatalError("Document Directory not found.")
-        }
-        return documentDirectory.appendingPathComponent("res.json")
-    }
-    
+let accessToken = "4fb83524bf2e30e93fd31d18f4143c49"
+
+let sandBoxFileName = "ResData.json"
+
+let downloadURL = "https://streamer.oit.duke.edu/places/items?tag=west_campus&access_token=" + accessToken
+
+class ResDataModel: ObservableObject {
+    @Published var restaurants: [Res] = []
+
     init() {
-        loadFromFile()
+        load()
+        download()
     }
-    
-    func loadFromFile() {
-        if FileManager.default.fileExists(atPath: dataModelURL.path) {
-            do {
-                let data = try Data(contentsOf: dataModelURL)
-                places = try JSONDecoder().decode([Place].self, from: data)
-            } catch {
-                print("Error loading data model: \(error)")
-            }
-        } else {
-            save()
-        }
-        
-        for (index, var place) in places.enumerated() {
-            place.id = index + 1
-            places[index] = place
-        }
-    }
-    
-    func load(dataModelFileURL: URL) {
-        do {
-            let data = try Data(contentsOf: dataModelFileURL)
-            places = try JSONDecoder().decode([Place].self, from: data)
-        } catch {
-            print("Error loading data model from specified file: \(error)")
-        }
-        save()
-        for (index, var place) in places.enumerated() {
-            place.id = index + 1
-            places[index] = place
-        }
-    }
-    
-    func add(place: Place) {
-        places.append(place)
-        save()
-    }
-    
-    func update(placeId: String, updatedPlace: Place) {
-        if let index = places.firstIndex(where: { $0.place_id == placeId }) {
-            places[index] = updatedPlace
-            save()
-        }
-    }
-    
-    func save() {
-        do {
-            let data = try JSONEncoder().encode(places)
-            try data.write(to: dataModelURL)
-        } catch {
-            print("Error saving data model: \(error)")
-        }
-    }
-    
+
     func download() {
-        let urlString = "https://streamer.oit.duke.edu/places/items?tag=west_campus&access_token=4fb83524bf2e30e93fd31d18f4143c49"
-        guard let url = URL(string: urlString) else { return }
-        
+        // Download the basic restaurant data
+        guard let url = URL(string: downloadURL) else { return }
+
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
             guard let data = data, error == nil else { return }
+
             do {
-                var downloadedPlaces = try JSONDecoder().decode([Place].self, from: data)
+                let restaurants = try JSONDecoder().decode([Res].self, from: data)
                 DispatchQueue.main.async {
-                    for (index, var downloadedPlace) in downloadedPlaces.enumerated() {
-                        downloadedPlace.id = index + 1
-                        downloadedPlaces[index] = downloadedPlace
-                    }
-                    self?.places = downloadedPlaces
-                    self?.save()
+                    self?.restaurants = restaurants
+                    self?.fetchAdditionalDetails()
                 }
             } catch {
-                print("Error downloading places: \(error)")
+                print("Decoding error: \(error)")
             }
         }
-        
         task.resume()
     }
-    
-    func list() {
-        for place in places {
-            print(place.name)
+
+    private func fetchAdditionalDetails() {
+        for index in restaurants.indices {
+            let restaurant = restaurants[index]
+            guard let detailsURL = URL(string: "https://streamer.oit.duke.edu/places/items/index?place_id=\(restaurant.placeId)&access_token=\(accessToken)") else { continue }
+
+            let task = URLSession.shared.dataTask(with: detailsURL) { [weak self] data, response, error in
+                guard let data = data, error == nil else { return }
+
+                do {
+                    let additionalDetails = try JSONDecoder().decode(Res.self, from: data)
+                    DispatchQueue.main.async {
+                        self?.restaurants[index].schedule = additionalDetails.schedule
+                        self?.restaurants[index].ownerOperator = additionalDetails.ownerOperator
+                        self?.restaurants[index].paymentMethods = additionalDetails.paymentMethods
+                    }
+                } catch {
+                    print("Decoding error: \(error)")
+                }
+            }
+            task.resume()
+        }
+    }
+
+    func save() {
+        guard let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(sandBoxFileName) else { return }
+
+        do {
+            let data = try JSONEncoder().encode(restaurants)
+            try data.write(to: url)
+        } catch {
+            print("Saving error: \(error)")
+        }
+    }
+
+    func load() {
+        guard let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(sandBoxFileName) else { return }
+
+        do {
+            let data = try Data(contentsOf: url)
+            restaurants = try JSONDecoder().decode([Res].self, from: data)
+        } catch {
+            print("Loading error: \(error)")
         }
     }
 }

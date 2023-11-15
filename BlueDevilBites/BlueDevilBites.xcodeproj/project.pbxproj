@@ -19,8 +19,6 @@
 		35197E312B03DA920051292C /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35197E302B03DA920051292C /* HelperFunctions.swift */; };
 		35197E332B03DCDF0051292C /* RestaurantTitleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35197E322B03DCDF0051292C /* RestaurantTitleImage.swift */; };
 		35197E352B03DEC30051292C /* res_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 35197E342B03DEC30051292C /* res_data.json */; };
-		35197E372B03E2A90051292C /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35197E362B03E2A90051292C /* StarRatingView.swift */; };
-		35197E3C2B03ED640051292C /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35197E3B2B03ED640051292C /* SearchBar.swift */; };
 		35CA22172AF9DC1300F05EFC /* DataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA22162AF9DC1300F05EFC /* DataStructures.swift */; };
 		35CA221B2AF9DF3200F05EFC /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA221A2AF9DF3200F05EFC /* DataModel.swift */; };
 /* End PBXBuildFile section */
@@ -39,8 +37,6 @@
 		35197E302B03DA920051292C /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		35197E322B03DCDF0051292C /* RestaurantTitleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTitleImage.swift; sourceTree = "<group>"; };
 		35197E342B03DEC30051292C /* res_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = res_data.json; path = ../../res_data.json; sourceTree = "<group>"; };
-		35197E362B03E2A90051292C /* StarRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
-		35197E3B2B03ED640051292C /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		35CA22162AF9DC1300F05EFC /* DataStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructures.swift; sourceTree = "<group>"; };
 		35CA22192AF9DC6700F05EFC /* TestCode.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TestCode.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		35CA221A2AF9DF3200F05EFC /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
@@ -116,15 +112,6 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		35197E3A2B03ED530051292C /* HelperView */ = {
-			isa = PBXGroup;
-			children = (
-				35197E362B03E2A90051292C /* StarRatingView.swift */,
-				35197E3B2B03ED640051292C /* SearchBar.swift */,
-			);
-			path = HelperView;
-			sourceTree = "<group>";
-		};
 		35CA22132AF9DA4800F05EFC /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,7 +124,6 @@
 		35CA22142AF9DA4E00F05EFC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				35197E3A2B03ED530051292C /* HelperView */,
 				35197E242B03D7170051292C /* Restaurants */,
 				351967062AD5B2A000890712 /* ContentView.swift */,
 				35197E2B2B03D78D0051292C /* LaunchScreen.swift */,
@@ -232,13 +218,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35197E3C2B03ED640051292C /* SearchBar.swift in Sources */,
 				35197E2C2B03D78D0051292C /* LaunchScreen.swift in Sources */,
 				35197E282B03D7380051292C /* RestaurantList.swift in Sources */,
 				35197E2A2B03D7480051292C /* RestaurantDetail.swift in Sources */,
 				35197E262B03D72B0051292C /* RestaurantRow.swift in Sources */,
 				35CA22172AF9DC1300F05EFC /* DataStructures.swift in Sources */,
-				35197E372B03E2A90051292C /* StarRatingView.swift in Sources */,
 				35197E312B03DA920051292C /* HelperFunctions.swift in Sources */,
 				35CA221B2AF9DF3200F05EFC /* DataModel.swift in Sources */,
 				35197E2F2B03D91F0051292C /* AppCoordinator.swift in Sources */,
