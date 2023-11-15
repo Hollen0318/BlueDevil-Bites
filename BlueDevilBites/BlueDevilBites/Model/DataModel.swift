@@ -34,7 +34,7 @@ class ResDataModel: ObservableObject {
             restaurants.forEach { res in
                 guard let url = URL(string: "http://\(vaporServerAddress)/restaurants?access_token=\(vaporAccessToken)") else { return }
 
-                let resData = ResData(id: res.placeId)
+                let resData = ResData(id: res.placeId!)
                 guard let uploadData = try? JSONEncoder().encode(resData) else { return }
 
                 var request = URLRequest(url: url)
@@ -53,7 +53,7 @@ class ResDataModel: ObservableObject {
         // Function to fetch comments for each restaurant
         private func fetchComments() {
             for restaurant in restaurants {
-                guard let url = URL(string: "http://1.2.3.4/comments/\(restaurant.placeId)&access_token=hz271") else { continue }
+                guard let url = URL(string: "http://1.2.3.4/comments/\(restaurant.placeId!)&access_token=hz271") else { continue }
 
                 let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
                     guard let data = data, error == nil else { return }
@@ -61,7 +61,7 @@ class ResDataModel: ObservableObject {
                     do {
                         let comments = try JSONDecoder().decode([CommentData].self, from: data)
                         DispatchQueue.main.async {
-                            self?.comments[restaurant.placeId] = comments
+                            self?.comments[restaurant.placeId!] = comments
                         }
                     } catch {
                         print("Decoding error: \(error)")
@@ -84,11 +84,19 @@ class ResDataModel: ObservableObject {
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
             guard let data = data, error == nil else { return }
 
+            // Print the raw data for inspection
+//            if let jsonString = String(data: data, encoding: .utf8) {
+//                print("Downloaded Restaurant Data: \(jsonString)")
+//            }
+            
             do {
                 let restaurants = try JSONDecoder().decode([Res].self, from: data)
                 DispatchQueue.main.async {
                     self?.restaurants = restaurants
+                    // Call fetchAdditionalDetails here, after restaurants array is populated
                     self?.fetchAdditionalDetails()
+                    // Then call processDownloadedData
+                    self?.processDownloadedData()
                 }
             } catch {
                 print("Decoding error: \(error)")
@@ -96,24 +104,27 @@ class ResDataModel: ObservableObject {
         }
         task.resume()
         
-        processDownloadedData()
-
     }
 
     private func fetchAdditionalDetails() {
         for index in restaurants.indices {
             let restaurant = restaurants[index]
-            guard let detailsURL = URL(string: "https://streamer.oit.duke.edu/places/items/index?place_id=\(restaurant.placeId)&access_token=\(streamerAccessToken)") else { continue }
-
+            guard let detailsURL = URL(string: "https://streamer.oit.duke.edu/places/items/index?place_id=\(restaurant.placeIdString)&access_token=\(streamerAccessToken)") else { continue }
+            print("The details URL to download restaurant ID = \(index) is \(detailsURL)")
             let task = URLSession.shared.dataTask(with: detailsURL) { [weak self] data, response, error in
                 guard let data = data, error == nil else { return }
-
+                
+                // Print the raw data for inspection
+                if let jsonString = String(data: data, encoding: .utf8) {
+                    print("Downloaded Restaurant = \(index) Data: \(jsonString)")
+                }
+                
                 do {
                     let additionalDetails = try JSONDecoder().decode(Res.self, from: data)
                     DispatchQueue.main.async {
-                        self?.restaurants[index].schedule = additionalDetails.schedule
-                        self?.restaurants[index].ownerOperator = additionalDetails.ownerOperator
-                        self?.restaurants[index].paymentMethods = additionalDetails.paymentMethods
+                        // Assuming 'restaurants' is an array of 'Res' objects
+                        self?.restaurants[index] = additionalDetails
+                        // You may need to refresh your UI here if necessary
                     }
                 } catch {
                     print("Decoding error: \(error)")
@@ -122,6 +133,7 @@ class ResDataModel: ObservableObject {
             task.resume()
         }
     }
+
 
     func save() {
         guard let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(sandBoxFileName) else { return }

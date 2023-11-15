@@ -16,13 +16,11 @@ struct BlueDevilBitesApp: App {
                 Group {
                     if appCoordinator.showMainView {
                         ContentView()
-                            .environmentObject(PlacesDataModel())
-                            .environmentObject(CommentsDataModel())
+                            .environmentObject(ResDataModel())
                             .transition(.opacity)
                     } else {
                         LaunchScreen()
-                            .environmentObject(PlacesDataModel())
-                            .environmentObject(CommentsDataModel())
+                            .environmentObject(ResDataModel())
                             .transition(.opacity)
                     }
                 }

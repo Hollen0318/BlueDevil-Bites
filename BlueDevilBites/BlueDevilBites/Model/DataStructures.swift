@@ -9,37 +9,35 @@ import Foundation
 import SwiftUI
 
 struct Res: Codable {
-    var placeId: Int
-    var isOpen: Bool
+    var placeIdString: String
+    var isOpenString: String // Changed from Bool to String
+    var isOpen: Bool {
+        return isOpenString.lowercased() == "true"
+    }
     var name: String
     var position: Position
     var location: String
-    var phone: String
-    var schedule: [ScheduleItem]
+    var phone: String?
     var tags: [String]
-    var ownerOperator: String?
-    var paymentMethods: String?
+    
+    // Computed property to convert placeId to Int
+    var placeId: Int? {
+        return Int(placeIdString)
+    }
 
     struct Position: Codable {
         var latitude: String
         var longitude: String
-        var googleMap: String
-    }
-
-    struct ScheduleItem: Codable {
-        var label: String
-        var date: String
-        var time: String
+        var googleMap: String? // Make this optional
     }
 
     enum CodingKeys: String, CodingKey {
-        case placeId = "place_id"
-        case isOpen = "open"
-        case name, position, location, phone, schedule, tags
-        case ownerOperator = "ownerOperator"
-        case paymentMethods = "paymentMethods"
+        case placeIdString = "place_id"
+        case isOpenString = "open" // Map to the correct JSON field
+        case name, position, location, phone, tags
     }
 }
+
 
 struct ResData: Codable {
     var id: Int

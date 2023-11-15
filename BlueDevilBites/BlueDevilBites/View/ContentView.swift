@@ -8,65 +8,34 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var placesDataModel: PlacesDataModel
-    @EnvironmentObject var commentsDataModel: CommentsDataModel
-    
+    @EnvironmentObject var dataModel: ResDataModel
+
     var body: some View {
         NavigationView {
-            VStack {
-                SearchBar(text: $dataModel.searchText, isNavigationBarHidden: $isNavigationBarHidden)
-                DukePersonList()
-                    .frame(maxHeight: .infinity)
-            }
-            .overlay(
-                Group {
-                    if shouldDisplayDownloadView {
-                        DownloadView(downloadProgress: $dataModel.downloadProgress,
-                                     downloadedBytes: .constant(Int64(dataModel.receivedData.count)),
-                                     totalBytes: .constant(dataModel.expectedContentLength),
-                                     numberOfEntries: .constant(dataModel.database.count),
-                                     isNetworkError: $dataModel.isNetworkError)
-                            .padding()
+            List {
+                ForEach(dataModel.restaurants, id: \.placeId) { restaurant in
+                    VStack(alignment: .leading) {
+                        Text(restaurant.name)
+                            .font(.headline)
+                        Text("Status: \(restaurant.isOpen ? "Open" : "Closed")")
+                        Text("Location: \(restaurant.location)")
+                        Text("Phone: \(restaurant.phone!)")
+                        Text("Place ID: \(restaurant.placeId ?? 0)")
+                        Text("Latitude: \(restaurant.position.latitude)")
+                        Text("Longitude: \(restaurant.position.longitude)")
+                        
+                        // Displaying comments
+                        if let comments = dataModel.comments[restaurant.placeId!] {
+                            ForEach(comments, id: \.username) { comment in
+                                Text("\(comment.username): \(comment.content)")
+                            }
+                        } else {
+                            Text("No Comments Available Yet")
+                        }
                     }
                 }
-            )
-            .navigationBarTitle("")
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarHidden(isNavigationBarHidden)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Text("Duke Directory")
-                        .font(.system(size: 27))
-                        .fontWeight(.bold)
-                }
             }
-            .navigationBarItems(
-                leading: Button(action: {
-                    if !isPreview {
-                        showActionSheet = true
-                    }
-                }) {
-                    Image(systemName: "icloud.and.arrow.down")
-                }
-                .disabled(isPreview || shouldDisplayDownloadView)
-                .actionSheet(isPresented: $showActionSheet) {
-                    ActionSheet(title: Text("Choose an action"),
-                                buttons: [.default(Text("Download and Update"), action: {startDownload(using: dataModel.downloadUpdate)}), .default(Text("Download and Replace"), action: {startDownload(using: dataModel.downloadReplace)}), .cancel()])
-                },
-                trailing: Button(action: {
-                    isPresentingAddEditView = true
-                }) {
-                    Image(systemName: "person.badge.plus")
-                }
-                .fullScreenCover(isPresented: $isPresentingAddEditView) {
-                    AddEditView(dukePerson: nil)
-                        .environmentObject(dataModel)
-                }
-            )
+            .navigationTitle("BlueDevil Bites")
         }
     }
-}
-
-#Preview {
-    ContentView()
 }
