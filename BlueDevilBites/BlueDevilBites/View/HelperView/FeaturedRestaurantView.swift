@@ -34,11 +34,11 @@ struct FeatureRestaurantImageView: View {
 
     var body: some View {
         HStack {
-            ForEach(0..<3) { _ in // Replace with actual images
-                Image("restaurant_placeholder")
+            ForEach(1...3, id: \.self) { index in // Loop from 1 to 3
+                Image("\(restaurant.name)_\(index)") // Use the restaurant's name with the index
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 100, height: 100)
+                    .frame(width: 120, height: 130)
                     .clipped()
             }
         }

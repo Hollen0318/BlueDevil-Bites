@@ -24,6 +24,20 @@ struct RestaurantList: View {
                         Text("Latitude: \(restaurant.position.latitude)")
                         Text("Longitude: \(restaurant.position.longitude)")
                         Text("GoogleMap: \(restaurant.position.googleMap ?? "GoogleMap Address Not available")")
+                        // Display tags
+                        if !restaurant.tags.isEmpty {
+                            Text("Tags: ")
+                            ForEach(restaurant.tags, id: \.self) { tag in
+                                Text(tag)
+                                    .padding(4)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(Color.blue, lineWidth: 1)
+                                    )
+                            }
+                        } else {
+                            Text("No Tags Available")
+                        }
                         // Displaying comments
                         if let comments = dataModel.comments[restaurant.placeId!] {
                             ForEach(comments, id: \.username) { comment in

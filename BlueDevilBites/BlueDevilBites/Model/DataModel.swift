@@ -91,7 +91,7 @@ class ResDataModel: ObservableObject {
                 DispatchQueue.main.async {
                     self?.restaurants = restaurants
                     // Then call processDownloadedData
-                    self?.processDownloadedData()
+//                    self?.processDownloadedData()
                 }
             } catch {
                 print("Decoding error: \(error)")
@@ -125,9 +125,29 @@ class ResDataModel: ObservableObject {
     }
     
     func uniqueTags() -> [String] {
+        // Debugging: print the count of restaurants
+        print("Total restaurants: \(restaurants.count)")
+
+        // Debugging: print tags of each restaurant
+        for (index, res) in restaurants.enumerated() {
+            print("Restaurant \(index + 1) tags: \(res.tags)")
+        }
+
         let allTags = restaurants.flatMap { $0.tags }
         let uniqueTagsArray = Array(Set(allTags)).sorted()
-        print("The uniqueTagsArray = \(uniqueTagsArray[0])")
+
+        // Debugging: print the unique tags
+        print("Unique tags: \(uniqueTagsArray)")
+
         return uniqueTagsArray
     }
+    
+    func findByName(byName name: String) -> Res? {
+        return restaurants.first { $0.name == name }
+    }
+
+    func restaurantsWith(tag: String) -> [Res] {
+        return restaurants.filter { $0.tags.contains(tag) }
+    }
+    
 }
