@@ -23,12 +23,32 @@ struct FeaturedRestaurantView: View {
                 Text("\(distanceToRestaurant(from: userLocation, restaurant: restaurant)) mile")
             }
         }
+        
     }
 
     private func distanceToRestaurant(from userLocation: CLLocationCoordinate2D, restaurant: Res) -> Double {
-        // Calculate and return the distance to the restaurant from the user's location
-        // For the purpose of this example, we're returning a mock distance
-        return 1.5
+        // Convert string latitude and longitude to CLLocationDegrees
+        guard let latitude = CLLocationDegrees(restaurant.position.latitude),
+              let longitude = CLLocationDegrees(restaurant.position.longitude) else {
+            return 0.0 // Return 0.0 if conversion fails
+        }
+
+        // Print the coordinates inside the function
+        print("Calculating distance with User Location: \(userLocation.latitude), \(userLocation.longitude)")
+        print("Calculating distance with Restaurant Location: \(latitude), \(longitude)")
+
+        
+        // Create CLLocation instances for user and restaurant locations
+        let restaurantLocation = CLLocation(latitude: latitude, longitude: longitude)
+        let currentUserLocation = CLLocation(latitude: userLocation.latitude, longitude: userLocation.longitude)
+
+        // Calculate distance in meters
+        let distanceInMeters = currentUserLocation.distance(from: restaurantLocation)
+
+        // Convert meters to miles
+        let distanceInMiles = distanceInMeters * 0.000621371
+
+        return distanceInMiles
     }
 }
 
