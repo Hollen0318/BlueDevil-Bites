@@ -28,7 +28,13 @@ struct Res: Codable {
     struct Position: Codable {
         var latitude: String
         var longitude: String
-        var googleMap: String? // Make this optional
+        var googleMap: String?
+        
+        enum CodingKeys: String, CodingKey {
+            case latitude = "latitude"
+            case longitude = "longitude"
+            case googleMap = "google_map"
+        }
     }
 
     enum CodingKeys: String, CodingKey {

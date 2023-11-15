@@ -20,10 +20,10 @@ struct ContentView: View {
                         Text("Status: \(restaurant.isOpen ? "Open" : "Closed")")
                         Text("Location: \(restaurant.location)")
                         Text("Phone: \(restaurant.phone!)")
-                        Text("Place ID: \(restaurant.placeId ?? 0)")
+                        Text("Place ID: \(restaurant.placeIdString)")
                         Text("Latitude: \(restaurant.position.latitude)")
                         Text("Longitude: \(restaurant.position.longitude)")
-                        
+                        Text("GoogleMap: \(restaurant.position.googleMap ?? "GoogleMap Address Not available")")
                         // Displaying comments
                         if let comments = dataModel.comments[restaurant.placeId!] {
                             ForEach(comments, id: \.username) { comment in
