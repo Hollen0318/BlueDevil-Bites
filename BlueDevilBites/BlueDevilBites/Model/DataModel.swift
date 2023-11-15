@@ -149,5 +149,9 @@ class ResDataModel: ObservableObject {
     func restaurantsWith(tag: String) -> [Res] {
         return restaurants.filter { $0.tags.contains(tag) }
     }
+ 
+    func allRes() -> [Res] {
+        return restaurants
+    }
     
 }

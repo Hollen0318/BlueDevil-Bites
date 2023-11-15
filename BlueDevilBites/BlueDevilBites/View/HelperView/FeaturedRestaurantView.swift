@@ -20,7 +20,7 @@ struct FeaturedRestaurantView: View {
                 Text(restaurant.name)
                     .bold()
                 Spacer()
-                Text("\(distanceToRestaurant(from: userLocation, restaurant: restaurant)) km")
+                Text("\(distanceToRestaurant(from: userLocation, restaurant: restaurant)) mile")
             }
         }
     }

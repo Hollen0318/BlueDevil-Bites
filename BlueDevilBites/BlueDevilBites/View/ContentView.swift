@@ -24,8 +24,12 @@ struct ContentView: View {
                 
                 SearchBar(text:$resDataModel.searchText, isNavigationBarHidden: $isNavigationBarHidden)
                 
-                
-                
+                ScrollView {
+                    ForEach(resDataModel.restaurants, id: \.placeIdString) { featureRes in
+                        FeaturedRestaurantView(restaurant: featureRes, userLocation: userLocation)
+                    }
+
+                }
             }
         }
         .ignoresSafeArea(edges: .top)
