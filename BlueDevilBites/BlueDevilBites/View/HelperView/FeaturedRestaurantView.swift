@@ -13,17 +13,22 @@ struct FeaturedRestaurantView: View {
     var userLocation: CLLocationCoordinate2D
 
     var body: some View {
-        VStack {
-            // Assuming you have a function to get images for the restaurant
-            FeatureRestaurantImageView(restaurant: restaurant)
-            HStack {
-                Text(restaurant.name)
-                    .bold()
-                Spacer()
-                Text("\(distanceToRestaurant(from: userLocation, restaurant: restaurant)) mile")
+        NavigationLink(destination: RestaurantDetailView(restaurant: restaurant)) {
+            VStack {
+                FeatureRestaurantImageView(restaurant: restaurant)
+                HStack {
+                    Text(restaurant.name)
+                        .bold()
+                    Spacer()
+                    Text("\(distanceToRestaurant(from: userLocation, restaurant: restaurant)) mile")
+                }
             }
+            .padding()
+            .background(Color.white)
+            .cornerRadius(10)
+            .shadow(radius: 5)
         }
-        
+        .buttonStyle(PlainButtonStyle())
     }
 
     private func distanceToRestaurant(from userLocation: CLLocationCoordinate2D, restaurant: Res) -> Double {
