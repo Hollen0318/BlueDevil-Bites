@@ -1,4 +1,3 @@
-//
 //  CommentView.swift
 //  BlueDevilBites
 //
@@ -9,7 +8,7 @@ import SwiftUI
 
 struct CommentView: View {
     let comment: CommentData
-    let totalLength = 90
+    let totalLength = 200
     // Computed property to pad the comment content
     var paddedContent: String {
         if comment.content.count < totalLength {

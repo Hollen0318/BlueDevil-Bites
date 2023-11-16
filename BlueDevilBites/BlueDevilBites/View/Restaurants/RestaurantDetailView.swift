@@ -11,6 +11,12 @@ import WebKit
 struct RestaurantDetailView: View {
     var restaurant: Res
     @EnvironmentObject var resDataModel: ResDataModel
+    
+    // State variables to store form data
+    @State private var score: Int = 0
+    @State private var commentContent: String = ""
+    @State private var commenterName: String = ""
+    
     var body: some View {
         GeometryReader { geometry in
             ScrollView {
@@ -76,24 +82,95 @@ struct RestaurantDetailView: View {
                             }
                         }
                     }
+                    
+                    // New Review Submission Form
+                    VStack {
+                        Text("Leave a review")
+                            .font(.headline)
+                            .padding()
+
+                        StarRatingView(score: $score) // Custom view for star rating
+                            .padding()
+
+                        TextField("Your Name", text: $commenterName)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding()
+
+                        TextField("Your Review", text: $commentContent)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding()
+
+                        Button("Submit") {
+                            submitReview()
+                        }
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
+                    }
+                    .padding()
+                    .background(Color.gray.opacity(0.1))
+                    .cornerRadius(12)
                 }
             }
             .ignoresSafeArea()
         }
     }
-}
+    // Function to handle review submission
+    private func submitReview() {
+        let commentData = CommentData(username: commenterName, content: commentContent, score: score)
+        let restaurantID = restaurant.placeIdString // Replace with actual property name
 
-struct MapView: UIViewRepresentable {
-    var url: URL
+        // Prepare URL and URLRequest
+        let vaporServerAddress = "1.2.3.4"
+        let vaporAccessToken = "hz271"
+        guard let url = URL(string: "http://\(vaporServerAddress)/\(restaurantID)?access_token=\(vaporAccessToken)") else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
-    func makeUIView(context: Context) -> some UIView {
-        let webView = WKWebView()
-        webView.load(URLRequest(url: url))
-        return webView
+        // Serialize the CommentData
+        guard let uploadData = try? JSONEncoder().encode(commentData) else {
+            return
+        }
+
+        // Create URLSession data task
+        let task = URLSession.shared.uploadTask(with: request, from: uploadData) { data, response, error in
+            if let error = error {
+                // Handle error scenario
+                print("Error: \(error)")
+                return
+            }
+            guard let response = response as? HTTPURLResponse,
+                  (200...299).contains(response.statusCode) else {
+                // Handle server error scenario
+                print("Server error")
+                return
+            }
+            // Handle successful scenario, parse the response data if needed
+            if let mimeType = response.mimeType, mimeType == "application/json",
+               let data = data {
+                // Optionally handle the response data
+                print("the uploaded data is \(data)")
+            }
+        }
+        // Start the task
+        task.resume()
     }
 
-    func updateUIView(_ uiView: UIViewType, context: Context) {}
 }
+
+//struct MapView: UIViewRepresentable {
+//    var url: URL
+//
+//    func makeUIView(context: Context) -> some UIView {
+//        let webView = WKWebView()
+//        webView.load(URLRequest(url: url))
+//        return webView
+//    }
+//
+//    func updateUIView(_ uiView: UIViewType, context: Context) {}
+//}
 
 struct RestaurantDetailView_Previews: PreviewProvider {
     static var previews: some View {
@@ -112,7 +189,7 @@ struct RestaurantDetailView_Previews: PreviewProvider {
         let sampleDataModel = ResDataModel()
         sampleDataModel.comments[sampleRestaurant.placeId!] = [
             CommentData(username: "Alice", content: "My favorite restaurant at Duke", score: 5),
-            CommentData(username: "Bob", content: "", score: 3),
+            CommentData(username: "Bob", content: "Nice position but way too crowded and under staffed", score: 3),
             CommentData(username: "Charlie", content: "Amazing fries, would visit again.", score: 4),
             CommentData(username: "Hollen", content: "The BlueDeivil Bite App Demo is here, it is working great and I am seriously considering using it for a prolonged time", score: 5)
         ]
