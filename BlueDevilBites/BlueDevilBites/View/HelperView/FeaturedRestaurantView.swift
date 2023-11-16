@@ -20,6 +20,13 @@ struct FeaturedRestaurantView: View {
                     .bold()
                     .foregroundColor(.black)
                     .padding(.leading, 10)
+                
+                // Add status text here
+                Text(restaurant.isOpen ? "Open" : "Closed")
+                    .foregroundColor(restaurant.isOpen ? .green : .red)
+                    .bold()
+                
+                
                 Spacer()
                 Text("\(formattedDistanceToRestaurant(from: userLocation, restaurant: restaurant)) mile")
                     .padding(.trailing, 10)

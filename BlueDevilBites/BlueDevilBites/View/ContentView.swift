@@ -27,9 +27,7 @@ struct ContentView: View {
                     SearchBar(text: $resDataModel.searchText, isNavigationBarHidden: $isNavigationBarHidden)
                     
                     ScrollView {
-                        ForEach(resDataModel.restaurants.filter { restaurant in
-                            resDataModel.searchText.isEmpty || restaurant.name.lowercased().contains(resDataModel.searchText.lowercased())
-                        }, id: \.placeIdString) { featureRes in
+                        ForEach(sortedAndFilteredRestaurants, id: \.placeIdString) { featureRes in
                             NavigationLink(destination: RestaurantDetailView(restaurant: featureRes)) {
                                 FeaturedRestaurantView(restaurant: featureRes, userLocation: defaultLocation)
                             }
@@ -42,5 +40,13 @@ struct ContentView: View {
         .navigationBarTitle("")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarHidden(isNavigationBarHidden)
+    }
+    
+    private var sortedAndFilteredRestaurants: [Res] {
+        return resDataModel.restaurants
+            .filter { restaurant in
+                resDataModel.searchText.isEmpty || restaurant.name.lowercased().contains(resDataModel.searchText.lowercased())
+            }
+            .sorted { $0.isOpen && !$1.isOpen }
     }
 }
