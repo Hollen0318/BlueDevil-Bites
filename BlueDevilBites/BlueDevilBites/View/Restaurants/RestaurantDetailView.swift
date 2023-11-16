@@ -96,9 +96,11 @@ struct RestaurantDetailView: View {
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .padding()
 
-                        TextField("Your Review", text: $commentContent)
+                        TextEditor(text: $commentContent)
+                            .frame(minHeight: 100) // Adjust the minimum height as needed
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .padding()
+
 
                         Button("Submit") {
                             submitReview()
