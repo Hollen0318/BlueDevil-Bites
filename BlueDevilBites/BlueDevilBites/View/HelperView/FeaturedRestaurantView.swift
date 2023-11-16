@@ -13,22 +13,19 @@ struct FeaturedRestaurantView: View {
     var userLocation: CLLocationCoordinate2D
 
     var body: some View {
-        NavigationLink(destination: RestaurantDetailView(restaurant: restaurant)) {
-            VStack {
-                FeatureRestaurantImageView(restaurant: restaurant)
-                HStack {
-                    Text(restaurant.name)
-                        .bold()
-                    Spacer()
-                    Text("\(distanceToRestaurant(from: userLocation, restaurant: restaurant)) mile")
-                }
+        VStack (spacing: 10) {
+            FeatureRestaurantImageView(restaurant: restaurant)
+            HStack {
+                Text(restaurant.name)
+                    .bold()
+                    .foregroundColor(.black)
+                Spacer()
+                Text("\(distanceToRestaurant(from: userLocation, restaurant: restaurant)) mile")
             }
-            .padding()
-            .background(Color.white)
-            .cornerRadius(10)
-            .shadow(radius: 5)
         }
-        .buttonStyle(PlainButtonStyle())
+        .background(Color.white)
+        .cornerRadius(10)
+        .shadow(radius: 5)
     }
 
     private func distanceToRestaurant(from userLocation: CLLocationCoordinate2D, restaurant: Res) -> Double {
@@ -39,8 +36,8 @@ struct FeaturedRestaurantView: View {
         }
 
         // Print the coordinates inside the function
-        print("Calculating distance with User Location: \(userLocation.latitude), \(userLocation.longitude)")
-        print("Calculating distance with Restaurant Location: \(latitude), \(longitude)")
+//        print("Calculating distance with User Location: \(userLocation.latitude), \(userLocation.longitude)")
+//        print("Calculating distance with Restaurant Location: \(latitude), \(longitude)")
 
         
         // Create CLLocation instances for user and restaurant locations
@@ -65,8 +62,7 @@ struct FeatureRestaurantImageView: View {
             ForEach(1...3, id: \.self) { index in // Loop from 1 to 3
                 Image("\(restaurant.name)_\(index)") // Use the restaurant's name with the index
                     .resizable()
-                    .scaledToFit()
-                    .frame(width: 120, height: 130)
+                    .frame(width: 120, height: 120)
                     .clipped()
             }
         }
