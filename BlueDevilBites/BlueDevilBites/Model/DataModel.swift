@@ -29,7 +29,7 @@ class ResDataModel: ObservableObject {
         download()
         save()
         
-        timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(updateData), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 300, target: self, selector: #selector(updateData), userInfo: nil, repeats: true)
     }
     
     @objc func updateData() {
