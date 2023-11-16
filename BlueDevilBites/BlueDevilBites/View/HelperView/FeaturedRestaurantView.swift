@@ -15,6 +15,7 @@ struct FeaturedRestaurantView: View {
     var body: some View {
         VStack (spacing: 10) {
             FeatureRestaurantImageView(restaurant: restaurant)
+                .padding(.top, 10)
             HStack {
                 Text(restaurant.name)
                     .bold()
@@ -31,6 +32,7 @@ struct FeaturedRestaurantView: View {
                 Text("\(formattedDistanceToRestaurant(from: userLocation, restaurant: restaurant)) mile")
                     .padding(.trailing, 10)
             }
+            .padding(.bottom, 10)
         }
         .background(Color.white)
         .cornerRadius(10)
