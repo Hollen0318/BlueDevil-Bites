@@ -37,6 +37,9 @@ struct SearchBar: View {
             }, onCommit: {
                 self.text = internalText // Update the binding text only when "enter" is pressed
             })
+            .onChange(of: internalText) { newValue in
+                self.text = newValue // Update the binding text as the user types
+            }
             .disableAutocorrection(true) // Disable auto-correction
             .autocapitalization(.none)    // Disable auto-capitalization
             .padding(7)

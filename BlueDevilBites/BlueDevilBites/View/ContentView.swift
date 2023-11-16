@@ -27,7 +27,9 @@ struct ContentView: View {
                     SearchBar(text: $resDataModel.searchText, isNavigationBarHidden: $isNavigationBarHidden)
                     
                     ScrollView {
-                        ForEach(resDataModel.restaurants, id: \.placeIdString) { featureRes in
+                        ForEach(resDataModel.restaurants.filter { restaurant in
+                            resDataModel.searchText.isEmpty || restaurant.name.lowercased().contains(resDataModel.searchText.lowercased())
+                        }, id: \.placeIdString) { featureRes in
                             NavigationLink(destination: RestaurantDetailView(restaurant: featureRes)) {
                                 FeaturedRestaurantView(restaurant: featureRes, userLocation: defaultLocation)
                             }
