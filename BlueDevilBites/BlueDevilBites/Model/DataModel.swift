@@ -21,10 +21,26 @@ class ResDataModel: ObservableObject {
     @Published var restaurants: [Res] = []
     @Published var comments: [Int: [CommentData]] = [:]
     @Published var searchText: String = ""
+    
+    var timer: Timer?
+    
     init() {
         load()
         download()
         save()
+        
+        timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(updateData), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateData() {
+        download()
+        save()
+    }
+    
+    // Call this function to stop the timer when needed
+    func stopUpdatingData() {
+        timer?.invalidate()
+        timer = nil
     }
     
     func uploadResID() {
