@@ -70,16 +70,19 @@ struct RestaurantDetailView: View {
                         .padding(.leading, 10)
                     }
                     
-                    // New section for Comments
-                    if let comments = resDataModel.comments[restaurant.placeId!], !comments.isEmpty {
-                        VStack(alignment: .leading) {
-                            Text("Comments")
-                                .font(.headline)
-                                .padding(.leading, 10)
+                    VStack(alignment: .leading) {
+                        Text("Comments")
+                            .font(.headline)
+                            .padding(.leading, 10)
+                        
+                        if let comments = resDataModel.comments[restaurant.placeId!], !comments.isEmpty {
                             ForEach(comments.indices, id: \.self) { index in
                                 CommentView(comment: comments[index])
                                     .frame(width: geometry.size.width)
                             }
+                        } else {
+                            Text("No comments yet") // Add this line
+                                .padding(.leading, 10)
                         }
                     }
                     
