@@ -24,36 +24,46 @@ struct RestaurantDetailView: View {
                         .font(.largeTitle)
                         .bold()
                     
-                    if let phone = restaurant.phone {
-                        // Updated code for handling phone number
-                        HStack {
-                            Image(systemName: "phone.fill")
-                            // Check for both nil and empty string
-                            Text((restaurant.phone?.isEmpty ?? true) ? "N/A" : restaurant.phone!)
-                        }
+                    
+                    // Updated code for handling phone number
+                    HStack {
+                        Image(systemName: "phone.fill")
+                        // Check for both nil and empty string
+                        Text((restaurant.phone?.isEmpty ?? true) ? "N/A" : restaurant.phone!)
+                            .bold()
                     }
+                
                     
                     Text("Location: \(restaurant.location)")
-                    Text("Status: \(restaurant.isOpen ? "Yes" : "No")")
+                        .bold()
+                    Text("Status: ")
+                        .bold()
+                        + Text(restaurant.isOpen ? "Open" : "Closed")
+                            .bold()
+                            .foregroundColor(restaurant.isOpen ? .green : .red)
                     
                     if let googleMapURL = restaurant.position.googleMap,
                        let url = URL(string: googleMapURL) {
-                        MapView(url: url)
-                            .frame(height: 300)
+                        Link(destination: url) {
+                            HStack {
+                                Image(systemName: "map") // Or use a custom image
+                                Text("Open in Google Maps")
+                            }
+                            .padding()
+                            .foregroundColor(.blue)
+                            .cornerRadius(8)
+                        }
                     }
                     
                     HStack {
                         Text("Tags: ")
                         ForEach(restaurant.tags, id: \.self) { tag in
                             Text(tag)
-//                                .padding(5)
-                                .background(Color.blue)
-                                .foregroundColor(.white)
-                                .cornerRadius(5)
+                                .foregroundColor(.blue)
+                                .cornerRadius(3)
                         }
                     }
                 }
-//                .padding()
             }
             .ignoresSafeArea()
         }

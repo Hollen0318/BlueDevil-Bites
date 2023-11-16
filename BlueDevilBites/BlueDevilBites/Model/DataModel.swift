@@ -66,7 +66,7 @@ class ResDataModel: ObservableObject {
     // Function to fetch comments for each restaurant
     private func fetchComments() {
         for restaurant in restaurants {
-            guard let url = URL(string: "http://1.2.3.4/comments/\(restaurant.placeId!)&access_token=hz271") else { continue }
+            guard let url = URL(string: "http://\(vaporServerAddress)/comments/\(restaurant.placeId!)&access_token=\(vaporAccessToken)") else { continue }
 
             let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
                 guard let data = data, error == nil else { return }
