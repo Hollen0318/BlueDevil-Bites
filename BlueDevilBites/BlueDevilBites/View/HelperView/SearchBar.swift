@@ -19,7 +19,7 @@ struct SearchBar: View {
                 Button(action: {
                     isEditing = false
                     isNavigationBarHidden = false
-                    hideKeyboard()
+//                    hideKeyboard()
                 }) {
                     Image(systemName: "arrow.backward")
                         .frame(width: 30, height: 22) // Optionally provide a frame for better sizing

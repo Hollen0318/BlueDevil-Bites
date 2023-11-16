@@ -19,8 +19,10 @@ struct FeaturedRestaurantView: View {
                 Text(restaurant.name)
                     .bold()
                     .foregroundColor(.black)
+                    .padding(.leading, 10)
                 Spacer()
-                Text("\(distanceToRestaurant(from: userLocation, restaurant: restaurant)) mile")
+                Text("\(formattedDistanceToRestaurant(from: userLocation, restaurant: restaurant)) mile")
+                    .padding(.trailing, 10)
             }
         }
         .background(Color.white)
@@ -52,6 +54,12 @@ struct FeaturedRestaurantView: View {
 
         return distanceInMiles
     }
+    
+    private func formattedDistanceToRestaurant(from userLocation: CLLocationCoordinate2D, restaurant: Res) -> String {
+        let distance = distanceToRestaurant(from: userLocation, restaurant: restaurant)
+        return String(format: "%.2f", distance) // Format to two decimal points
+    }
+    
 }
 
 struct FeatureRestaurantImageView: View {
