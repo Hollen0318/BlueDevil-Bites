@@ -27,6 +27,7 @@ class ResDataModel: ObservableObject {
     init() {
         load()
         download()
+        processDownloadedData()
         save()
         
         timer = Timer.scheduledTimer(timeInterval: 300, target: self, selector: #selector(updateData), userInfo: nil, repeats: true)
@@ -34,6 +35,7 @@ class ResDataModel: ObservableObject {
     
     @objc func updateData() {
         download()
+        processDownloadedData()
         save()
     }
     

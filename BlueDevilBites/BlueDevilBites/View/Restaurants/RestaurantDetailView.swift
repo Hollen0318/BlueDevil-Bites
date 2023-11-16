@@ -10,7 +10,7 @@ import WebKit
 
 struct RestaurantDetailView: View {
     var restaurant: Res
-
+    @EnvironmentObject var resDataModel: ResDataModel
     var body: some View {
         GeometryReader { geometry in
             ScrollView {
@@ -23,6 +23,7 @@ struct RestaurantDetailView: View {
                     Text(restaurant.name)
                         .font(.largeTitle)
                         .bold()
+                        .padding(.leading, 10)
                     
                     
                     // Updated code for handling phone number
@@ -32,15 +33,22 @@ struct RestaurantDetailView: View {
                         Text((restaurant.phone?.isEmpty ?? true) ? "N/A" : restaurant.phone!)
                             .bold()
                     }
+                    .padding(.leading, 10)
                 
                     
                     Text("Location: \(restaurant.location)")
                         .bold()
-                    Text("Status: ")
-                        .bold()
-                        + Text(restaurant.isOpen ? "Open" : "Closed")
+                        .padding(.leading, 10)
+                    
+                    HStack {
+                        Text("Status: ")
                             .bold()
-                            .foregroundColor(restaurant.isOpen ? .green : .red)
+                        
+                        Text(restaurant.isOpen ? "Open" : "Closed")
+                                .bold()
+                                .foregroundColor(restaurant.isOpen ? .green : .red)
+                    }
+                    .padding(.leading, 10)
                     
                     if let googleMapURL = restaurant.position.googleMap,
                        let url = URL(string: googleMapURL) {
@@ -53,14 +61,19 @@ struct RestaurantDetailView: View {
                             .foregroundColor(.blue)
                             .cornerRadius(8)
                         }
+                        .padding(.leading, 10)
                     }
                     
-                    HStack {
-                        Text("Tags: ")
-                        ForEach(restaurant.tags, id: \.self) { tag in
-                            Text(tag)
-                                .foregroundColor(.blue)
-                                .cornerRadius(3)
+                    // New section for Comments
+                    if let comments = resDataModel.comments[restaurant.placeId!], !comments.isEmpty {
+                        VStack(alignment: .leading) {
+                            Text("Comments")
+                                .font(.headline)
+                                .padding(.leading, 10)
+                            ForEach(comments.indices, id: \.self) { index in
+                                CommentView(comment: comments[index])
+                                    .frame(width: geometry.size.width)
+                            }
                         }
                     }
                 }
@@ -84,15 +97,28 @@ struct MapView: UIViewRepresentable {
 
 struct RestaurantDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        // Pass a sample restaurant data for preview
-        RestaurantDetailView(restaurant: Res(
+        // Create a sample restaurant
+        let sampleRestaurant = Res(
             placeIdString: "1",
             isOpenString: "true",
             name: "McDonald's",
-            position: Res.Position(latitude: "40.7128", longitude: "-74.0060", googleMap: "http://maps.google.com"),
-            location: "123 Main St",
-            phone: "123-456-7890",
-            tags: ["Italian", "Cozy", "Family-friendly"]
-        ))
+            position: Res.Position(latitude: "35.9980", longitude: "-78.9382", googleMap: "http://maps.google.com"),
+            location: "123 Duke St",
+            phone: "919-123-4567",
+            tags: ["Fast Food", "Burgers", "Fries"]
+        )
+
+        // Create a sample data model with comments
+        let sampleDataModel = ResDataModel()
+        sampleDataModel.comments[sampleRestaurant.placeId!] = [
+            CommentData(username: "Alice", content: "My favorite restaurant at Duke", score: 5),
+            CommentData(username: "Bob", content: "", score: 3),
+            CommentData(username: "Charlie", content: "Amazing fries, would visit again.", score: 4),
+            CommentData(username: "Hollen", content: "The BlueDeivil Bite App Demo is here, it is working great and I am seriously considering using it for a prolonged time", score: 5)
+        ]
+
+        // Pass the sample restaurant and data model to the RestaurantDetailView
+        return RestaurantDetailView(restaurant: sampleRestaurant)
+            .environmentObject(sampleDataModel)
     }
 }
