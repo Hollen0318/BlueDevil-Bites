@@ -16,7 +16,8 @@ struct RestaurantDetailView: View {
     @State private var score: Int = 0
     @State private var commentContent: String = ""
     @State private var commenterName: String = ""
-    
+    @State private var showingSuccessAlert = false
+
     var body: some View {
         GeometryReader { geometry in
             ScrollView {
@@ -120,6 +121,13 @@ struct RestaurantDetailView: View {
             }
             .ignoresSafeArea()
         }
+        .alert(isPresented: $showingSuccessAlert) {
+            Alert(
+                title: Text("Success"),
+                message: Text("Your review has been successfully submitted."),
+                dismissButton: .default(Text("OK"))
+            )
+        }
     }
     // Function to handle review submission
     private func submitReview() {
@@ -127,9 +135,9 @@ struct RestaurantDetailView: View {
         let restaurantID = restaurant.placeIdString // Replace with actual property name
 
         // Prepare URL and URLRequest
-//        let vaporServerAddress = "1.2.3.4"
-//        let vaporAccessToken = "hz271"
-        guard let url = URL(string: "http://\(vaporServerAddress)/comments/\(restaurantID)") else { return }
+        let vaporServerAddress = "1.2.3.4"
+        let vaporAccessToken = "hz271"
+        guard let url = URL(string: "http://\(vaporServerAddress)/\(restaurantID)?access_token=\(vaporAccessToken)") else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -157,6 +165,12 @@ struct RestaurantDetailView: View {
                let data = data {
                 // Optionally handle the response data
                 print("the uploaded data is \(data)")
+                resDataModel.updateData()
+                // State variables to store form data
+                score = 0
+                commentContent = ""
+                commenterName = ""
+                showingSuccessAlert = true
             }
         }
         // Start the task
