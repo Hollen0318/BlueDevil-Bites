@@ -9,8 +9,8 @@ import Foundation
 import Combine
 import SwiftUI
 
-let vaporAccessToken = "hz271"
-let vaporServerAddress = "1.2.3.4"
+//let vaporAccessToken = "hz271"
+let vaporServerAddress = "127.0.0.1:8080"
 
 let streamerAccessToken = "4fb83524bf2e30e93fd31d18f4143c49"
 let sandBoxFileName = "ResData.json"
@@ -48,7 +48,7 @@ class ResDataModel: ObservableObject {
     
     func uploadResID() {
         restaurants.forEach { res in
-            guard let url = URL(string: "http://\(vaporServerAddress)/restaurants?access_token=\(vaporAccessToken)") else { return }
+            guard let url = URL(string: "http://\(vaporServerAddress)/restaurants") else { return }
 
             let resData = ResData(id: res.placeId!)
             guard let uploadData = try? JSONEncoder().encode(resData) else { return }
@@ -69,7 +69,7 @@ class ResDataModel: ObservableObject {
     // Function to fetch comments for each restaurant
     private func fetchComments() {
         for restaurant in restaurants {
-            guard let url = URL(string: "http://\(vaporServerAddress)/comments/\(restaurant.placeId!)&access_token=\(vaporAccessToken)") else { continue }
+            guard let url = URL(string: "http://\(vaporServerAddress)/comments/\(restaurant.placeId!)") else { continue }
 
             let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
                 guard let data = data, error == nil else { return }
