@@ -10,17 +10,17 @@ import SwiftUI
 @main
 struct BlueDevilBitesApp: App {
     @StateObject private var appCoordinator = AppCoordinator()
-
+    @StateObject private var resdata = ResDataModel()
     var body: some Scene {
             WindowGroup {
                 Group {
                     if appCoordinator.showMainView {
                         ContentView()
-                            .environmentObject(ResDataModel())
+                            .environmentObject(resdata)
                             .transition(.opacity)
                     } else {
                         LaunchScreen()
-                            .environmentObject(ResDataModel())
+                            .environmentObject(resdata)
                             .transition(.opacity)
                     }
                 }

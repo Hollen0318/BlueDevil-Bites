@@ -29,7 +29,8 @@ class ResDataModel: ObservableObject {
         download()
         processDownloadedData()
         save()
-        
+        let size = restaurants.count
+        print("size: \(size)")
         timer = Timer.scheduledTimer(timeInterval: 300, target: self, selector: #selector(updateData), userInfo: nil, repeats: true)
     }
     
@@ -88,11 +89,13 @@ class ResDataModel: ObservableObject {
 
     // Call this function at the end of the download method
     private func processDownloadedData() {
+        print("begin processDownloadedData")
         uploadResID()
         fetchComments()
     }
 
     func download() {
+        print("begin download")
         // Download the basic restaurant data
         guard let url = URL(string: streamerDownloadURL) else { return }
 
@@ -121,6 +124,7 @@ class ResDataModel: ObservableObject {
 
 
     func save() {
+        print("begin save")
         guard let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(sandBoxFileName) else { return }
 
         do {
@@ -132,6 +136,7 @@ class ResDataModel: ObservableObject {
     }
 
     func load() {
+        print("begin load")
         guard let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(sandBoxFileName) else { return }
 
         do {
