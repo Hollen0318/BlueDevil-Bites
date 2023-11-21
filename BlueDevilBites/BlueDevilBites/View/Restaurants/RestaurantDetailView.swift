@@ -135,9 +135,8 @@ struct RestaurantDetailView: View {
         let restaurantID = restaurant.placeIdString // Replace with actual property name
 
         // Prepare URL and URLRequest
-        let vaporServerAddress = "1.2.3.4"
         let vaporAccessToken = "hz271"
-        guard let url = URL(string: "http://\(vaporServerAddress)/\(restaurantID)?access_token=\(vaporAccessToken)") else { return }
+        guard let url = URL(string: "http://\(vaporServerAddress)/comments/\(restaurantID)") else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
