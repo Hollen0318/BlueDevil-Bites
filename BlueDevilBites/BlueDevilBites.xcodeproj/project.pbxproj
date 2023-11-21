@@ -37,6 +37,7 @@
 		BE09E3FB2B0C090D003E8536 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A6D4102B05D49D0090673F /* CommentView.swift */; };
 		BE09E3FC2B0C090F003E8536 /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A6D4122B05D7320090673F /* StarRatingView.swift */; };
 		BE3FF02F2B0D239F009C381C /* res_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 35197E342B03DEC30051292C /* res_data.json */; };
+		BEA507492B0D5AF500FAC6FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 351967082AD5B2A100890712 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -335,6 +336,7 @@
 			files = (
 				BE09E3EC2B0BF748003E8536 /* Preview Assets.xcassets in Resources */,
 				BE09E3E92B0BF748003E8536 /* Assets.xcassets in Resources */,
+				BEA507492B0D5AF500FAC6FE /* Assets.xcassets in Resources */,
 				BE3FF02F2B0D239F009C381C /* res_data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

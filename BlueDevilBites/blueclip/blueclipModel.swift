@@ -8,6 +8,7 @@
 import Foundation
 
 class blueclipModel: ObservableObject {
-    @Published var selected: Res?
+    @Published var selectedRes: Res?
+    @Published var selectedCom: [CommentData]!
     @Published public var isFound = true
 }

@@ -10,8 +10,12 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject private var model: blueclipModel
     var body: some View {
-        if (model.selected != nil) {
-            RestaurantDetailView(restaurant: model.selected!)
+        if (model.selectedRes != nil) {
+            RestaurantDetailView(restaurant: model.selectedRes!)
+//            Text("id: ")
+//            Text(model.selected!.placeIdString)
+//            Text("name")
+//            Text(model.selected!.name)
         } else {
             Text("can't find restaurant")
         }

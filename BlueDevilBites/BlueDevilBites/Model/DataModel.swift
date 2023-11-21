@@ -24,7 +24,7 @@ class ResDataModel: ObservableObject {
     
     var timer: Timer?
     
-    init() {
+    func start() {
         load()
         download()
         processDownloadedData()
@@ -67,7 +67,7 @@ class ResDataModel: ObservableObject {
     }
 
     // Function to fetch comments for each restaurant
-    private func fetchComments() {
+    public func fetchComments() {
         for restaurant in restaurants {
             guard let url = URL(string: "http://\(vaporServerAddress)/comments/\(restaurant.placeId!)") else { continue }
 
@@ -114,6 +114,8 @@ class ResDataModel: ObservableObject {
                     // Then call processDownloadedData
 //                    self?.processDownloadedData()
                 }
+                let size = restaurants.count
+                print("Size after json: \(size)")
             } catch {
                 print("Decoding error: \(error)")
             }
