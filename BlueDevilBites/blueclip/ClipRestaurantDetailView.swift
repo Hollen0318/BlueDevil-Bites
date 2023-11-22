@@ -8,10 +8,9 @@ import SwiftUI
 import MapKit
 import WebKit
 
-struct RestaurantDetailView: View {
-    var restaurant: Res
-    @EnvironmentObject var resDataModel: ResDataModel
-    
+struct ClipRestaurantDetailView: View {
+    @EnvironmentObject var model: blueclipModel
+//    var comments: [CommentData]
     // State variables to store form data
     @State private var score: Int = 0
     @State private var commentContent: String = ""
@@ -23,11 +22,11 @@ struct RestaurantDetailView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 10) {
                     
-                    Image("\(restaurant.name)_1") // Use the restaurant's name with the index
+                    Image("\(model.selectedRes!.name)_1") // Use the restaurant's name with the index
                         .resizable()
                         .frame(width: geometry.size.width, height: geometry.size.height / 3)
                     
-                    Text(restaurant.name)
+                    Text(model.selectedRes!.name)
                         .font(.largeTitle)
                         .bold()
                         .padding(.leading, 10)
@@ -37,13 +36,13 @@ struct RestaurantDetailView: View {
                     HStack {
                         Image(systemName: "phone.fill")
                         // Check for both nil and empty string
-                        Text((restaurant.phone?.isEmpty ?? true) ? "N/A" : restaurant.phone!)
+                        Text((model.selectedRes!.phone?.isEmpty ?? true) ? "N/A" : model.selectedRes!.phone!)
                             .bold()
                     }
                     .padding(.leading, 10)
                 
                     
-                    Text("Location: \(restaurant.location)")
+                    Text("Location: \(model.selectedRes!.location)")
                         .bold()
                         .padding(.leading, 10)
                     
@@ -51,13 +50,13 @@ struct RestaurantDetailView: View {
                         Text("Status: ")
                             .bold()
                         
-                        Text(restaurant.isOpen ? "Open" : "Closed")
+                        Text(model.selectedRes!.isOpen ? "Open" : "Closed")
                                 .bold()
-                                .foregroundColor(restaurant.isOpen ? .green : .red)
+                                .foregroundColor(model.selectedRes!.isOpen ? .green : .red)
                     }
                     .padding(.leading, 10)
                     
-                    if let googleMapURL = restaurant.position.googleMap,
+                    if let googleMapURL = model.selectedRes!.position.googleMap,
                        let url = URL(string: googleMapURL) {
                         Link(destination: url) {
                             HStack {
@@ -75,10 +74,9 @@ struct RestaurantDetailView: View {
                         Text("Comments")
                             .font(.headline)
                             .padding(.leading, 10)
-                        
-                        if let comments = resDataModel.comments[restaurant.placeId!], !comments.isEmpty {
-                            ForEach(comments.indices, id: \.self) { index in
-                                CommentView(comment: comments[index])
+                        if (!model.selectedCom.isEmpty) {
+                            ForEach(model.selectedCom.indices, id: \.self) { index in
+                                CommentView(comment: model.selectedCom[index])
                                     .frame(width: geometry.size.width)
                             }
                         } else {
@@ -108,6 +106,7 @@ struct RestaurantDetailView: View {
 
                         Button("Submit") {
                             submitReview()
+                            
                         }
                         .padding()
                         .background(Color.blue)
@@ -129,11 +128,13 @@ struct RestaurantDetailView: View {
             )
         }
     }
+
     // Function to handle review submission
     private func submitReview() {
         let commentData = CommentData(username: commenterName, content: commentContent, score: score)
-        let restaurantID = restaurant.placeIdString // Replace with actual property name
-
+        let restaurantID = model.selectedRes!.placeIdString // Replace with actual property name
+        model.selectedCom.append(commentData)
+        
         // Prepare URL and URLRequest
         guard let url = URL(string: "http://\(vaporServerAddress)/comments/\(restaurantID)") else { return }
         var request = URLRequest(url: url)
@@ -163,7 +164,6 @@ struct RestaurantDetailView: View {
                let data = data {
                 // Optionally handle the response data
                 print("the uploaded data is \(data)")
-                resDataModel.updateData()
                 // State variables to store form data
                 score = 0
                 commentContent = ""
@@ -173,46 +173,5 @@ struct RestaurantDetailView: View {
         }
         // Start the task
         task.resume()
-    }
-
-}
-
-//struct MapView: UIViewRepresentable {
-//    var url: URL
-//
-//    func makeUIView(context: Context) -> some UIView {
-//        let webView = WKWebView()
-//        webView.load(URLRequest(url: url))
-//        return webView
-//    }
-//
-//    func updateUIView(_ uiView: UIViewType, context: Context) {}
-//}
-
-struct RestaurantDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        // Create a sample restaurant
-        let sampleRestaurant = Res(
-            placeIdString: "1",
-            isOpenString: "true",
-            name: "McDonald's",
-            position: Res.Position(latitude: "35.9980", longitude: "-78.9382", googleMap: "http://maps.google.com"),
-            location: "123 Duke St",
-            phone: "919-123-4567",
-            tags: ["Fast Food", "Burgers", "Fries"]
-        )
-
-        // Create a sample data model with comments
-        let sampleDataModel = ResDataModel()
-        sampleDataModel.comments[sampleRestaurant.placeId!] = [
-            CommentData(username: "Alice", content: "My favorite restaurant at Duke", score: 5),
-            CommentData(username: "Bob", content: "Nice position but way too crowded and under staffed", score: 3),
-            CommentData(username: "Charlie", content: "Amazing fries, would visit again.", score: 4),
-            CommentData(username: "Hollen", content: "The BlueDeivil Bite App Demo is here, it is working great and I am seriously considering using it for a prolonged time", score: 5)
-        ]
-
-        // Pass the sample restaurant and data model to the RestaurantDetailView
-        return RestaurantDetailView(restaurant: sampleRestaurant)
-            .environmentObject(sampleDataModel)
     }
 }

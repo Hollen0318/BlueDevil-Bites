@@ -9,7 +9,9 @@ import Foundation
 import Combine
 import SwiftUI
 
-//let vaporAccessToken = "hz271"
+// use for docker test
+//let vaporServerAddress = "vcm-37065.vm.duke.edu:8080"
+// use for local test
 let vaporServerAddress = "127.0.0.1:8080"
 
 let streamerAccessToken = "4fb83524bf2e30e93fd31d18f4143c49"
@@ -24,13 +26,11 @@ class ResDataModel: ObservableObject {
     
     var timer: Timer?
     
-    func start() {
+    init() {
         load()
         download()
         processDownloadedData()
         save()
-        let size = restaurants.count
-        print("size: \(size)")
         timer = Timer.scheduledTimer(timeInterval: 300, target: self, selector: #selector(updateData), userInfo: nil, repeats: true)
     }
     

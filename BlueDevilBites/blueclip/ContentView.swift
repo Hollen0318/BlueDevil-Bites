@@ -10,14 +10,12 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject private var model: blueclipModel
     var body: some View {
-        if (model.selectedRes != nil) {
-            RestaurantDetailView(restaurant: model.selectedRes!)
-//            Text("id: ")
-//            Text(model.selected!.placeIdString)
-//            Text("name")
-//            Text(model.selected!.name)
-        } else {
+        if !model.isDataLoaded {
+            ProgressView("Loading...")
+        } else if (model.selectedRes == nil){
             Text("can't find restaurant")
+        } else {
+            ClipRestaurantDetailView()
         }
     }
 }

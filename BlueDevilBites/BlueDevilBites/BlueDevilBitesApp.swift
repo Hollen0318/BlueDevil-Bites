@@ -18,16 +18,10 @@ struct BlueDevilBitesApp: App {
                         ContentView()
                             .environmentObject(resdata)
                             .transition(.opacity)
-                            .onAppear {
-                                resdata.start()
-                            }
                     } else {
                         LaunchScreen()
                             .environmentObject(resdata)
                             .transition(.opacity)
-                            .onAppear {
-                                resdata.start()
-                            }
                     }
                 }
                 .animation(.easeOut(duration: 0.5), value: appCoordinator.showMainView)

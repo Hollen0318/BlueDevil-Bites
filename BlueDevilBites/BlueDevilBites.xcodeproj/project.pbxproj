@@ -38,6 +38,7 @@
 		BE09E3FC2B0C090F003E8536 /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A6D4122B05D7320090673F /* StarRatingView.swift */; };
 		BE3FF02F2B0D239F009C381C /* res_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 35197E342B03DEC30051292C /* res_data.json */; };
 		BEA507492B0D5AF500FAC6FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 351967082AD5B2A100890712 /* Assets.xcassets */; };
+		BEA5074B2B0D655A00FAC6FE /* ClipRestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA5074A2B0D655A00FAC6FE /* ClipRestaurantDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,8 @@
 		BE09E3ED2B0BF748003E8536 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE09E3EE2B0BF748003E8536 /* blueclip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = blueclip.entitlements; sourceTree = "<group>"; };
 		BE09E3F82B0C0539003E8536 /* blueclipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = blueclipModel.swift; sourceTree = "<group>"; };
+		BEA5074A2B0D655A00FAC6FE /* ClipRestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipRestaurantDetailView.swift; sourceTree = "<group>"; };
+		BEA5074C2B0DB9D200FAC6FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +137,7 @@
 		351967032AD5B2A000890712 /* BlueDevilBites */ = {
 			isa = PBXGroup;
 			children = (
+				BEA5074C2B0DB9D200FAC6FE /* Info.plist */,
 				35197E342B03DEC30051292C /* res_data.json */,
 				35197E2D2B03D90B0051292C /* Coordinator */,
 				35CA22182AF9DC4F00F05EFC /* PlayGround */,
@@ -227,6 +231,7 @@
 				BE09E3E42B0BF745003E8536 /* blueclipApp.swift */,
 				BE09E3E62B0BF745003E8536 /* ContentView.swift */,
 				BE09E3F82B0C0539003E8536 /* blueclipModel.swift */,
+				BEA5074A2B0D655A00FAC6FE /* ClipRestaurantDetailView.swift */,
 				BE09E3E82B0BF748003E8536 /* Assets.xcassets */,
 				BE09E3ED2B0BF748003E8536 /* Info.plist */,
 				BE09E3EE2B0BF748003E8536 /* blueclip.entitlements */,
@@ -373,6 +378,7 @@
 				BE09E3E72B0BF745003E8536 /* ContentView.swift in Sources */,
 				BE09E3FC2B0C090F003E8536 /* StarRatingView.swift in Sources */,
 				BE09E3F72B0BFD10003E8536 /* DataStructures.swift in Sources */,
+				BEA5074B2B0D655A00FAC6FE /* ClipRestaurantDetailView.swift in Sources */,
 				BE09E3FA2B0C08F1003E8536 /* RestaurantDetailView.swift in Sources */,
 				BE09E3E52B0BF745003E8536 /* blueclipApp.swift in Sources */,
 				BE09E3F92B0C0539003E8536 /* blueclipModel.swift in Sources */,
@@ -522,6 +528,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"BlueDevilBites/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BlueDevilBites/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -551,6 +559,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"BlueDevilBites/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BlueDevilBites/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -583,6 +593,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = blueclip/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BlueDevilBites;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -615,6 +626,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = blueclip/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BlueDevilBites;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
