@@ -6,9 +6,5 @@
 	<array>
 		<string>bluedevilbites.com</string>
 	</array>
-	<key>com.apple.developer.parent-application-identifiers</key>
-	<array>
-		<string>$(AppIdentifierPrefix)bluedevilbites</string>
-	</array>
 </dict>
 </plist>
