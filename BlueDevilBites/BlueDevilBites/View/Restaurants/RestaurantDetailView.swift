@@ -41,7 +41,6 @@ struct RestaurantDetailView: View {
                         
                         Spacer()
                         
-                        // Safely display the ScoreCircleView
                         if !(resDataModel.comments[restaurant.placeId!] ?? []).isEmpty {
                             ScoreCircleView(score: averageScore)
                                 .padding(.trailing, 30)
