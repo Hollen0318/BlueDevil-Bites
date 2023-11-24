@@ -31,6 +31,12 @@ struct ClipRestaurantDetailView: View {
                         .bold()
                         .padding(.leading, 10)
                     
+                    HStack {
+                        Image(systemName: "house")
+                        Text("\(model.selectedRes!.location)")
+                            .bold()
+                    }
+                    .padding(.leading, 10)
                     
                     // Updated code for handling phone number
                     HStack {
@@ -41,13 +47,10 @@ struct ClipRestaurantDetailView: View {
                     }
                     .padding(.leading, 10)
                 
-                    
-                    Text("Location: \(model.selectedRes!.location)")
-                        .bold()
-                        .padding(.leading, 10)
-                    
                     HStack {
-                        Text("Status: ")
+                        Image(systemName: "menucard")
+                        // Check for both nil and empty string
+                        Text("Status:")
                             .bold()
                         
                         Text(model.selectedRes!.isOpen ? "Open" : "Closed")
@@ -61,9 +64,8 @@ struct ClipRestaurantDetailView: View {
                         Link(destination: url) {
                             HStack {
                                 Image(systemName: "map") // Or use a custom image
-                                Text("Open in Google Maps")
+                                Text("Navigate via Google Map")
                             }
-                            .padding()
                             .foregroundColor(.blue)
                             .cornerRadius(8)
                         }
