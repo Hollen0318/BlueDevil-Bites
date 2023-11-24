@@ -71,13 +71,15 @@ struct RestaurantDetailView: View {
                     }
                     .padding(.leading, 10)
                     
-                    HStack {
-                        Image(systemName: "phone.fill")
-                        // Check for both nil and empty string
-                        Text((restaurant.phone?.isEmpty ?? true) ? "N/A" : restaurant.phone!)
-                            .bold()
+                    if let phone = restaurant.phone, !phone.isEmpty {
+                        HStack {
+                            Image(systemName: "phone.fill")
+                            // Check for both nil and empty string
+                            Text(restaurant.phone!)
+                                .bold()
+                        }
+                        .padding(.leading, 10)
                     }
-                    .padding(.leading, 10)
                     
                     if let googleMapURL = restaurant.position.googleMap,
                        let url = URL(string: googleMapURL) {

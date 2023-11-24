@@ -71,13 +71,14 @@ struct ClipRestaurantDetailView: View {
                     .padding(.leading, 10)
                     
                     // Updated code for handling phone number
-                    HStack {
-                        Image(systemName: "phone.fill")
-                        // Check for both nil and empty string
-                        Text((model.selectedRes!.phone?.isEmpty ?? true) ? "N/A" : model.selectedRes!.phone!)
-                            .bold()
+                    if let phone = model.selectedRes!.phone, !phone.isEmpty {
+                        HStack {
+                            Image(systemName: "phone.fill")
+                            Text(phone)
+                                .bold()
+                        }
+                        .padding(.leading, 10)
                     }
-                    .padding(.leading, 10)
                     
                     if let googleMapURL = model.selectedRes!.position.googleMap,
                        let url = URL(string: googleMapURL) {
