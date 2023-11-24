@@ -79,6 +79,7 @@ struct RestaurantDetailView: View {
                             // Check for both nil and empty string
                             Text(restaurant.phone!)
                                 .bold()
+                                .padding(.leading, 3)
                         }
                         .padding(.leading, 10)
                     }

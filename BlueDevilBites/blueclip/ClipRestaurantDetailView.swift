@@ -77,6 +77,7 @@ struct ClipRestaurantDetailView: View {
                             Image(systemName: "phone.fill")
                             Text(phone)
                                 .bold()
+                                .padding(.leading, 3)
                         }
                         .padding(.leading, 10)
                     }
