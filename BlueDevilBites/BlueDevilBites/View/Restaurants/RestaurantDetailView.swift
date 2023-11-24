@@ -32,8 +32,15 @@ struct RestaurantDetailView: View {
                         .bold()
                         .padding(.leading, 10)
                     
+                
                     
-                    // Updated code for handling phone number
+                    HStack {
+                        Image(systemName: "house")
+                        Text("\(restaurant.location)")
+                            .bold()
+                    }
+                    .padding(.leading, 10)
+                    
                     HStack {
                         Image(systemName: "phone.fill")
                         // Check for both nil and empty string
@@ -41,14 +48,11 @@ struct RestaurantDetailView: View {
                             .bold()
                     }
                     .padding(.leading, 10)
-                
-                    
-                    Text("Location: \(restaurant.location)")
-                        .bold()
-                        .padding(.leading, 10)
                     
                     HStack {
-                        Text("Status: ")
+                        Image(systemName: "menucard")
+                        // Check for both nil and empty string
+                        Text("Status:")
                             .bold()
                         
                         Text(restaurant.isOpen ? "Open" : "Closed")
@@ -62,9 +66,8 @@ struct RestaurantDetailView: View {
                         Link(destination: url) {
                             HStack {
                                 Image(systemName: "map") // Or use a custom image
-                                Text("Open in Google Maps")
+                                Text("Navigate via Google Map")
                             }
-                            .padding()
                             .foregroundColor(.blue)
                             .cornerRadius(8)
                         }
