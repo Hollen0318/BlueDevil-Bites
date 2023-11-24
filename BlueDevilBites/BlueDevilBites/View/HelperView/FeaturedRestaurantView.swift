@@ -20,23 +20,24 @@ struct FeaturedRestaurantView: View {
                 Text(restaurant.name)
                     .bold()
                     .foregroundColor(.black)
-                    .padding(.leading, 10)
+                    .padding(.leading, 35)
                 
                 // Add status text here
                 Text(restaurant.isOpen ? "Open" : "Closed")
                     .foregroundColor(restaurant.isOpen ? .green : .red)
-                    .bold()
+//                    .bold()
                 
                 
                 Spacer()
                 Text("\(formattedDistanceToRestaurant(from: userLocation, restaurant: restaurant)) mile")
-                    .padding(.trailing, 10)
+                    .padding(.trailing, 35)
+                    .foregroundColor(.gray)
             }
             .padding(.bottom, 10)
         }
         .background(Color.white)
         .cornerRadius(10)
-        .shadow(radius: 5)
+//        .shadow(radius: 5)
     }
 
     private func distanceToRestaurant(from userLocation: CLLocationCoordinate2D, restaurant: Res) -> Double {
@@ -79,7 +80,7 @@ struct FeatureRestaurantImageView: View {
             ForEach(1...3, id: \.self) { index in // Loop from 1 to 3
                 Image("\(restaurant.name)_\(index)") // Use the restaurant's name with the index
                     .resizable()
-                    .frame(width: 120, height: 120)
+                    .frame(width: 100, height: 100)
                     .clipped()
             }
         }
