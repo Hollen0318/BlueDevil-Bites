@@ -64,10 +64,12 @@ struct RestaurantDetailView: View {
                         // Check for both nil and empty string
                         Text("Status:")
                             .bold()
+                            .padding(.leading, 5)
                         
                         Text(restaurant.isOpen ? "Open" : "Closed")
                                 .bold()
                                 .foregroundColor(restaurant.isOpen ? .green : .red)
+                        
                     }
                     .padding(.leading, 10)
                     
@@ -107,6 +109,7 @@ struct RestaurantDetailView: View {
                         } else {
                             Text("No comments yet") // Add this line
                                 .padding(.leading, 10)
+                                .foregroundColor(.gray)
                         }
                     }
                     

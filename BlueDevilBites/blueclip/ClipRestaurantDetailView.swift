@@ -63,6 +63,7 @@ struct ClipRestaurantDetailView: View {
                         // Check for both nil and empty string
                         Text("Status:")
                             .bold()
+                            .padding(.leading, 5)
                         
                         Text(model.selectedRes!.isOpen ? "Open" : "Closed")
                                 .bold()
@@ -105,6 +106,7 @@ struct ClipRestaurantDetailView: View {
                         } else {
                             Text("No comments yet") // Add this line
                                 .padding(.leading, 10)
+                                .foregroundColor(.gray)
                         }
                     }
                     
