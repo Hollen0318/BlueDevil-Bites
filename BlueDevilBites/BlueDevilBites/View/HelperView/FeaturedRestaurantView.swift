@@ -76,11 +76,11 @@ struct FeatureRestaurantImageView: View {
     var restaurant: Res
 
     var body: some View {
-        HStack {
+        HStack (spacing: 3) {
             ForEach(1...3, id: \.self) { index in // Loop from 1 to 3
                 Image("\(restaurant.name)_\(index)") // Use the restaurant's name with the index
                     .resizable()
-                    .frame(width: 100, height: 100)
+                    .frame(width: 105, height: 105)
                     .clipped()
             }
         }

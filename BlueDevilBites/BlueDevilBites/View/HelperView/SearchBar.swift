@@ -10,30 +10,30 @@ import SwiftUI
 struct SearchBar: View {
     @Binding var text: String
     @State private var isEditing = false
-    @Binding var isNavigationBarHidden: Bool
+//    @Binding var isNavigationBarHidden: Bool
     @State private var internalText: String = ""
     
     var body: some View {
         HStack(spacing: 2) { // Reduced the spacing between elements within HStack
-            if isNavigationBarHidden {
-                Button(action: {
-                    isEditing = false
-                    isNavigationBarHidden = false
-//                    hideKeyboard()
-                }) {
-                    Image(systemName: "arrow.backward")
-                        .frame(width: 30, height: 22) // Optionally provide a frame for better sizing
-                        .padding(7)
-                        .foregroundColor(.blue)
-                        .background(Color(.systemGray6))
-                        .cornerRadius(8)
-                }
-                .padding(.leading, 10) // Adjusted padding
-            }
+//            if isNavigationBarHidden {
+//                Button(action: {
+//                    isEditing = false
+//                    isNavigationBarHidden = false
+////                    hideKeyboard()
+//                }) {
+//                    Image(systemName: "arrow.backward")
+//                        .frame(width: 30, height: 22) // Optionally provide a frame for better sizing
+//                        .padding(7)
+//                        .foregroundColor(.blue)
+//                        .background(Color(.systemGray6))
+//                        .cornerRadius(8)
+//                }
+//                .padding(.leading, 80) // Adjusted padding
+//            }
             
             TextField("Search...", text: $internalText, onEditingChanged: { editingStarted in
                 isEditing = editingStarted
-                if editingStarted { isNavigationBarHidden = true }
+//                if editingStarted { isNavigationBarHidden = true }
             }, onCommit: {
                 self.text = internalText // Update the binding text only when "enter" is pressed
             })
@@ -63,8 +63,8 @@ struct SearchBar: View {
                     }
                 }
             )
-            .padding(.horizontal, 10)
-            .onTapGesture { self.isEditing = true; self.isNavigationBarHidden = true }
+            .padding(.horizontal, 80)
+//            .onTapGesture { self.isEditing = true; self.isNavigationBarHidden = true }
         }
     }
     // A helper function to hide the keyboard

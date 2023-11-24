@@ -24,7 +24,7 @@ struct ContentView: View {
                         .resizable()
                         .frame(width: geometry.size.width, height: geometry.size.height / 3)
                     
-                    SearchBar(text: $resDataModel.searchText, isNavigationBarHidden: $isNavigationBarHidden)
+                    SearchBar(text: $resDataModel.searchText)
                     
                     ScrollView {
                         ForEach(sortedAndFilteredRestaurants, id: \.placeIdString) { featureRes in
