@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ScoreCircleView: View {
     var score: Double
-
-    let customYellow = Color(red: 1, green: 1, blue: 0) // RGB for yellow
+    
+    let customYellow = Color(red: 242, green: 242, blue: 58) // RGB for yellow
 
     var body: some View {
         ZStack {
