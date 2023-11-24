@@ -124,8 +124,7 @@ struct ClipRestaurantDetailView: View {
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .padding()
 
-                        TextEditor(text: $commentContent)
-                            .frame(minHeight: 100) // Adjust the minimum height as needed
+                        TextField("Your Review", text: $commentContent)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .padding()
 
