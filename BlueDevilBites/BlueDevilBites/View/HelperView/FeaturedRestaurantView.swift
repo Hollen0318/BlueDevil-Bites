@@ -80,7 +80,7 @@ struct FeatureRestaurantImageView: View {
             ForEach(1...3, id: \.self) { index in // Loop from 1 to 3
                 Image("\(restaurant.name)_\(index)") // Use the restaurant's name with the index
                     .resizable()
-                    .frame(width: 105, height: 105)
+                    .frame(width: 111, height: 111)
                     .clipped()
             }
         }
