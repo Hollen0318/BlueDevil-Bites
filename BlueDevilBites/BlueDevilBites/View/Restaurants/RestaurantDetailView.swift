@@ -18,6 +18,12 @@ struct RestaurantDetailView: View {
     @State private var commenterName: String = ""
     @State private var showingSuccessAlert = false
 
+    private var averageScore: Double {
+        let comments = resDataModel.comments[restaurant.placeId!] ?? []
+        let totalScore = comments.reduce(0) { $0 + $1.score }
+        return comments.isEmpty ? 0 : Double(totalScore) / Double(comments.count)
+    }
+    
     var body: some View {
         GeometryReader { geometry in
             ScrollView {
@@ -27,12 +33,25 @@ struct RestaurantDetailView: View {
                         .resizable()
                         .frame(width: geometry.size.width, height: geometry.size.height / 3)
                     
-                    Text(restaurant.name)
-                        .font(.largeTitle)
-                        .bold()
-                        .padding(.leading, 10)
-                    
-                
+                    HStack {
+                        Text(restaurant.name)
+                            .font(.largeTitle)
+                            .bold()
+                            .padding(.leading, 10)
+                        
+                        Spacer()
+                        
+                        // Safely display the ScoreCircleView
+                        if !(resDataModel.comments[restaurant.placeId!] ?? []).isEmpty {
+                            ScoreCircleView(score: averageScore)
+                                .padding(.trailing, 30)
+                        } else {
+                            // If no comments, display ScoreCircleView with 0 score
+                            ScoreCircleView(score: 0)
+                                .padding(.trailing, 30)
+                        }
+                        
+                    }
                     
                     HStack {
                         Image(systemName: "house")

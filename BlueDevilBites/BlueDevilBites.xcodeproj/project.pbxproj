@@ -16,6 +16,8 @@
 		35197E2F2B03D91F0051292C /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35197E2E2B03D91F0051292C /* AppCoordinator.swift */; };
 		35197E312B03DA920051292C /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35197E302B03DA920051292C /* HelperFunctions.swift */; };
 		35197E352B03DEC30051292C /* res_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 35197E342B03DEC30051292C /* res_data.json */; };
+		356141FA2B105D5100059AED /* ScoreCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356141F92B105D5100059AED /* ScoreCircleView.swift */; };
+		356141FB2B105D5100059AED /* ScoreCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356141F92B105D5100059AED /* ScoreCircleView.swift */; };
 		35A6D4112B05D49D0090673F /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A6D4102B05D49D0090673F /* CommentView.swift */; };
 		35A6D4132B05D7320090673F /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A6D4122B05D7320090673F /* StarRatingView.swift */; };
 		35CA22172AF9DC1300F05EFC /* DataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA22162AF9DC1300F05EFC /* DataStructures.swift */; };
@@ -77,6 +79,7 @@
 		35197E302B03DA920051292C /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		35197E342B03DEC30051292C /* res_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = res_data.json; path = ../../res_data.json; sourceTree = "<group>"; };
 		35442B742B0EAA670031D1A1 /* BlueDevilBites.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BlueDevilBites.entitlements; sourceTree = "<group>"; };
+		356141F92B105D5100059AED /* ScoreCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCircleView.swift; sourceTree = "<group>"; };
 		35A6D4102B05D49D0090673F /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		35A6D4122B05D7320090673F /* StarRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
 		35CA22162AF9DC1300F05EFC /* DataStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructures.swift; sourceTree = "<group>"; };
@@ -223,6 +226,7 @@
 				35E963592B053F73004066C3 /* SearchBar.swift */,
 				35A6D4102B05D49D0090673F /* CommentView.swift */,
 				35A6D4122B05D7320090673F /* StarRatingView.swift */,
+				356141F92B105D5100059AED /* ScoreCircleView.swift */,
 			);
 			path = HelperView;
 			sourceTree = "<group>";
@@ -364,6 +368,7 @@
 				35E9635A2B053F73004066C3 /* SearchBar.swift in Sources */,
 				35E9FFF72B048FC20069AEC9 /* FeaturedRestaurantView.swift in Sources */,
 				35A6D4132B05D7320090673F /* StarRatingView.swift in Sources */,
+				356141FA2B105D5100059AED /* ScoreCircleView.swift in Sources */,
 				35197E2F2B03D91F0051292C /* AppCoordinator.swift in Sources */,
 				351967072AD5B2A000890712 /* ContentView.swift in Sources */,
 				351967052AD5B2A000890712 /* BlueDevilBitesApp.swift in Sources */,
@@ -378,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE09E3E72B0BF745003E8536 /* ContentView.swift in Sources */,
+				356141FB2B105D5100059AED /* ScoreCircleView.swift in Sources */,
 				BE09E3FC2B0C090F003E8536 /* StarRatingView.swift in Sources */,
 				BE09E3F72B0BFD10003E8536 /* DataStructures.swift in Sources */,
 				BEA5074B2B0D655A00FAC6FE /* ClipRestaurantDetailView.swift in Sources */,
