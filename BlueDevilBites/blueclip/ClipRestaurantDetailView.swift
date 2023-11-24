@@ -37,15 +37,6 @@ struct ClipRestaurantDetailView: View {
                             .bold()
                     }
                     .padding(.leading, 10)
-                    
-                    // Updated code for handling phone number
-                    HStack {
-                        Image(systemName: "phone.fill")
-                        // Check for both nil and empty string
-                        Text((model.selectedRes!.phone?.isEmpty ?? true) ? "N/A" : model.selectedRes!.phone!)
-                            .bold()
-                    }
-                    .padding(.leading, 10)
                 
                     HStack {
                         Image(systemName: "menucard")
@@ -56,6 +47,15 @@ struct ClipRestaurantDetailView: View {
                         Text(model.selectedRes!.isOpen ? "Open" : "Closed")
                                 .bold()
                                 .foregroundColor(model.selectedRes!.isOpen ? .green : .red)
+                    }
+                    .padding(.leading, 10)
+                    
+                    // Updated code for handling phone number
+                    HStack {
+                        Image(systemName: "phone.fill")
+                        // Check for both nil and empty string
+                        Text((model.selectedRes!.phone?.isEmpty ?? true) ? "N/A" : model.selectedRes!.phone!)
+                            .bold()
                     }
                     .padding(.leading, 10)
                     

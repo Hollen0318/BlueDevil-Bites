@@ -42,14 +42,6 @@ struct RestaurantDetailView: View {
                     .padding(.leading, 10)
                     
                     HStack {
-                        Image(systemName: "phone.fill")
-                        // Check for both nil and empty string
-                        Text((restaurant.phone?.isEmpty ?? true) ? "N/A" : restaurant.phone!)
-                            .bold()
-                    }
-                    .padding(.leading, 10)
-                    
-                    HStack {
                         Image(systemName: "menucard")
                         // Check for both nil and empty string
                         Text("Status:")
@@ -58,6 +50,14 @@ struct RestaurantDetailView: View {
                         Text(restaurant.isOpen ? "Open" : "Closed")
                                 .bold()
                                 .foregroundColor(restaurant.isOpen ? .green : .red)
+                    }
+                    .padding(.leading, 10)
+                    
+                    HStack {
+                        Image(systemName: "phone.fill")
+                        // Check for both nil and empty string
+                        Text((restaurant.phone?.isEmpty ?? true) ? "N/A" : restaurant.phone!)
+                            .bold()
                     }
                     .padding(.leading, 10)
                     
