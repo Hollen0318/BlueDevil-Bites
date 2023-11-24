@@ -9,13 +9,11 @@ import SwiftUI
 
 struct ScoreCircleView: View {
     var score: Double
-    
-    let customYellow = Color(red: 242, green: 242, blue: 58) // RGB for yellow
 
     var body: some View {
         ZStack {
             Circle()
-                .fill(customYellow) // Use the custom yellow color
+                .fill(.yellow) // Use the custom yellow color
                 .frame(width: 70, height: 70) // Adjust the size as needed
             
             if score > 0 {
