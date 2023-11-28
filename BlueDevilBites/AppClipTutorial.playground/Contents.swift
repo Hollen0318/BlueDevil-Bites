@@ -35,7 +35,6 @@ App Clips can be used in various scenarios like electronic commerce, parking, an
 import UIKit
 import AppClip
 
-@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
@@ -61,7 +60,6 @@ Now, let's look at a simple use case implementation for an App Clip.
 
 import CoreLocation
 
-@main
 class ParkingAppClipDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
@@ -89,14 +87,13 @@ Let's look at a SwiftUI implementation for an App Clip.
 */
 import SwiftUI
 
-@main
-struct ParkingAppClip: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-    }
-}
+//struct ParkingAppClip: App {
+//    var body: some Scene {
+//        WindowGroup {
+//            ContentView()
+//        }
+//    }
+//}
 
 struct ContentView: View {
     var body: some View {
@@ -263,7 +260,7 @@ First, design a simplified version of your app's UI that focuses on the core fun
 */
 
 // Example SwiftUI code for a basic App Clip interface
-struct AppClipView: View {
+struct AppClipView2: View {
     var body: some View {
         Text("Welcome to My App Clip!")
             .font(.title)
@@ -335,7 +332,7 @@ Optimizing your App Clip for performance is key to providing a smooth user exper
 
 // Example Code:
 
-struct ContentView: View {
+struct ContentView3: View {
     var body: some View {
         Text("Hello, App Clips!")
             .padding()
@@ -388,7 +385,7 @@ The `debugExample` function demonstrates a basic debugging scenario where you ch
 import SwiftUI
 import PlaygroundSupport
 
-struct ContentView: View {
+struct ContentView4: View {
     var body: some View {
         Text("Hello, App Clips!")
     }
@@ -446,7 +443,7 @@ struct EfficientUIDesignView: View {
 }
 
 // MARK: - Playground Preview
-struct ContentView: View {
+struct ContentView6: View {
     var body: some View {
         TabView {
             SimpleOrderingSystemView()
@@ -497,7 +494,7 @@ struct ARViewContainer: UIViewRepresentable {
     func updateUIView(_ uiView: ARView, context: Context) {}
 }
 
-struct ContentView: View {
+struct ContentView7: View {
     var body: some View {
         ARViewContainer()
             .edgesIgnoringSafeArea(.all)
@@ -510,3 +507,4 @@ This is a very basic AR setup. In a real-world App Clip, you would add more inte
 Remember, the key to a successful App Clip is to provide a focused, fast, and engaging experience that encourages users to download the full app for more features.
 
 */
+
