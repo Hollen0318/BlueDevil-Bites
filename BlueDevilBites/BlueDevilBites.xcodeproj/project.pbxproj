@@ -78,6 +78,7 @@
 		35197E2E2B03D91F0051292C /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		35197E302B03DA920051292C /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		35197E342B03DEC30051292C /* res_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = res_data.json; path = ../../res_data.json; sourceTree = "<group>"; };
+		352FB7A92B156E7600CDCA59 /* AppClipTutorial.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AppClipTutorial.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		35442B742B0EAA670031D1A1 /* BlueDevilBites.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BlueDevilBites.entitlements; sourceTree = "<group>"; };
 		356141F92B105D5100059AED /* ScoreCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCircleView.swift; sourceTree = "<group>"; };
 		35A6D4102B05D49D0090673F /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
@@ -123,6 +124,7 @@
 		351966F82AD5B2A000890712 = {
 			isa = PBXGroup;
 			children = (
+				352FB7A92B156E7600CDCA59 /* AppClipTutorial.playground */,
 				351967032AD5B2A000890712 /* BlueDevilBites */,
 				BE09E3E32B0BF745003E8536 /* blueclip */,
 				351967022AD5B2A000890712 /* Products */,
