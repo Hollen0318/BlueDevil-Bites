@@ -1,5 +1,22 @@
 /*:
-# Understanding iOS App Clips for XCode Development
+ # App Clips Tutorial for ECE 564 MOBILE APP DEVELOPMENT
+ */
+/*:
+## Part 1: Prerequisites to get an App Clip
+
+### A. Apple Developer Account with "individual" enroll status
+ 
+You need an Apple Developer Account to successfully build an App Clip, which means you need either purchase an account from the [Apple Developer](https://developer.apple.com/) or perhaps obtain one from the Duke University. Notice that the account you obtained must have the "individual" enrolled status, enroll status like "developer" permission won't work (like the one we obtained from Duke University in the first time).
+ 
+ To verify that you have the correct account to continue this tutorial, log in to the Apple Developer [Apple Developer](https://developer.apple.com/), enter the "Account" tab on the top, and scroll down to the Membership details section, see the screenshot below:
+ 
+ ![Developer Account](developer_account.png)
+ 
+ ### B. App Clip Code Generator
+ 
+ To create the App Clip Code for your app, you must create it using the App Clip Code Generator downloaded from the [Apple Connect](). Navigate to the resources, then type the App Clip Code Generator, you will find the tool. Download and install it on your computer. Notice that if you are not logged in a developer account with "holder" per
+ 
+ Understanding iOS App Clips for XCode Development
  
  This playground provides a comprehensive guide to designing and implementing iOS App Clips using SwiftUI. It covers essential design principles and showcases examples for specific use cases.
 
@@ -59,6 +76,7 @@ Now, let's look at a simple use case implementation for an App Clip.
 // Code Example: A use case implementation for an App Clip
 
 import CoreLocation
+
 
 class ParkingAppClipDelegate: UIResponder, UIApplicationDelegate {
 
