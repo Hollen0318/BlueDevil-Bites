@@ -33,6 +33,9 @@ This project aims to demonstrate the implementation of an App Clip using SwiftUI
 4. **Tutorial on Implementation**:
     - Detailed step-by-step guide on adding an App Clip to the app using a Playground file, drawing parallels with the ToDoList tutorial.
 
+5. **Server**:
+    - We utilized the Vapor server, you can download it and install our server in the "Server branch"
+
 ### Installation & Setup:
 1. Clone this repository.
 2. Open the `.xcodeproj` file with XCode.
