@@ -6,15 +6,51 @@
 
 ### A. Apple Developer Account with "individual" enroll status
  
-You need an Apple Developer Account to successfully build an App Clip, which means you need either purchase an account from the [Apple Developer](https://developer.apple.com/) or perhaps obtain one from the Duke University. Notice that the account you obtained must have the "individual" enrolled status, enroll status like "developer" permission won't work (like the one we obtained from Duke University in the first time).
+You need an Apple Developer Account to successfully build an App Clip, which means you need either purchase an account from the [Apple Developer](https://developer.apple.com/) or perhaps obtain one from the Duke University. Notice that the account you obtained must have the "individual" enrolled status, enroll status like "developer" permission won't work (like the one we obtained from Duke University in the first time);
  
- To verify that you have the correct account to continue this tutorial, log in to the Apple Developer [Apple Developer](https://developer.apple.com/), enter the "Account" tab on the top, and scroll down to the Membership details section, see the screenshot below:
+ To verify that you have the correct account to continue this tutorial, log in to the Apple Developer [Apple Developer](https://developer.apple.com/), enter the "Account" tab on the top, and scroll down to the Membership details section
  
  ![Developer Account](developer_account.png)
  
- ### B. App Clip Code Generator
+ ### B. Apple Connect Account with "Admin, Account Holder" role
  
- To create the App Clip Code for your app, you must create it using the App Clip Code Generator downloaded from the [Apple Connect](). Navigate to the resources, then type the App Clip Code Generator, you will find the tool. Download and install it on your computer. Notice that if you are not logged in a developer account with "holder" per
+ Using the account you purchased from the [Apple Developer](https://developer.apple.com/), log in to the [Apple Connect](https://appstoreconnect.apple.com/), and go to the [User and Access](https://appstoreconnect.apple.com/access/users) tab, clicked the "All" tab on the left, you should have "ROLE" include "Admin, Account Holder".
+ 
+ ![Apple Connect Account](appleconnect_admin.png)
+ 
+ 
+ ### C. App Clip Code Generator
+ 
+ To create the App Clip Code for your app, you must create it using the App Clip Code Generator downloaded from the [Apple Developer Downloads](https://developer.apple.com/download/all/). You should see a page for you to input the software name and download. Type the "App Clip Code Generator" and you will see the software in the search list.
+ 
+ ![App Clip Code Generator](appClipSearch.png)
+ 
+ Notice that if you are not logged in a developer account with "Account Holder" role, you won't be able to see it. i.e. A free account won't work.
+ 
+ ### D. iPhone device with latest iOS system installed & XCode with latest version
+ 
+ The functionality of App Clips works only on version later than iOS 14.0. To make sure your phone uses the same code, update both your iPhone, and XCode to the latest version so you can test the App Clips on your iPhone using raw camera.
+ 
+ ## Part 2: Build your main app & app clips
+ 
+ ### A. Open the XCode, create a new iOS App project with SwiftUI as the interface, remember to use the correct team account.
+ 
+ ![Create New Project](createNewProject.png)
+ 
+ The creation of your main app has no difference with or without the App Clips. Just build the app however you planned to.
+ 
+ ### B. Build an App Clip Target and add it to the main app project
+ 
+ #### 1. Create an App Clip Target by File -> New -> Target...
+ 
+ ![Create App Clip](createAppClip.png)
+ 
+
+ #### 1. Create an App Clip Target by File -> New -> Target...
+ 
+ ![Create App Clip](createAppClip.png)
+ 
+ 
  
  Understanding iOS App Clips for XCode Development
  
