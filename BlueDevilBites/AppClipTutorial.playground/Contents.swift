@@ -45,12 +45,67 @@ You need an Apple Developer Account to successfully build an App Clip, which mea
  
  ![Create App Clip](createAppClip.png)
  
-
- #### 1. Create an App Clip Target by File -> New -> Target...
+ #### 2. Search for the App Clip and click the next
  
- ![Create App Clip](createAppClip.png)
+ ![Search App Clip](searchAppClip.png)
  
+ #### 3. Add the target to the main app project
  
+ ![Add App Clip to the Project](addClip.png)
+ 
+ ## Part 3: Test the App Clip
+ 
+ ### A. After installed your App Clip Code Generator, create an App Clip Code using the terminal
+ 
+ $ AppClipCodeGenerator generate --url https://appclip.example.com --index 9 --output /[YourPath]/filename.svg
+ 
+ ![Command Line Tools Code](commandLine.png)
+ 
+ Notice that if you want to customize the url, it needs to be on a public domain. Unless you are going to really publish the app, you can just use this demo one on default. Because we will test it in the local experiences, as long as you put the same url in the code and the app, you can load it with no problem.
+ 
+ Here we show a App Clip Code we generated.
+ 
+ ![App Clip Code](appclipcode.png)
+ 
+ ### B. Connect the phone and build app & app clips
+ 
+ Connect your phone to the Mac you are using, and select the device to your phone. If hinted for trust, click trust the computer. Hit Command + R to build both main app and the app clip to your phone. Notice: You can skip build the app clip if the app is published, otherwise you have to build it first to test it.
+ 
+ ![Select Your Device](selectDevice.png)
+ 
+ On your iPhone, open the settings and clicked the developer which located in the middle. Notice that the XCode might requires you to register the device first, feel free to do it by clcking on the error message and click "register".
+ 
+ ![Find Developer in the Settings](developerSettings.png)
+ 
+ In the developer settings, scroll down and find the local experiences, click it.
+ 
+ ![Local Experiecnes in the Settings](localExperiencesSettings.png)
+ 
+ Register a new local experience by click "Register Local Experiences".
+ 
+ ![Register Local Experiences](registerLocalExp.png)
+ 
+ Input the correct information. The URL must match with the App Clip Code, and the identifier should be the bundle identifider for your app clip. To look it up, click the project in the left file navigator, and you can find the bundle identifier for the App Clip.
+ 
+ ![Find Identifier](findID.png)
+ 
+ Change the Action into the view, input the title, description and a nice picture for your app clip.
+ 
+ ![Input the local experiences](inputLocalExp.png)
+ 
+ Then scan the App Clip Code on your computer, remember that both main app & app clip should already be installed on your iPhone before you do it.
+ 
+ ![Scan the App Clip Code](scanCode.png)
+ 
+ You will see a button appear, click it. The card for your app clip will appear.
+ 
+ ![App Clip Card](raiseCard.png)
+ 
+ Then click the view, you will go to the app clip view.
+ 
+ ![Load then Clip](loadClip.png)
+ 
+ ## Par 4:
  
  Understanding iOS App Clips for XCode Development
  
