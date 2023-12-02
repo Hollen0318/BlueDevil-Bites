@@ -105,13 +105,21 @@ You need an Apple Developer Account to successfully build an App Clip, which mea
  
  ![Load then Clip](loadClip.png)
  
- ## Par 4:
+ ## Part 4: App Clip Programming
  
- Understanding iOS App Clips for XCode Development
+ ### A. Parse the invocation URL
  
- This playground provides a comprehensive guide to designing and implementing iOS App Clips using SwiftUI. It covers essential design principles and showcases examples for specific use cases.
-
-## Part 1: Introduction to App Clips
+ ### B. What App Clip shares with the Main App
+ 
+ ### C. App Clip data source
+ 
+ #### 1. From the same identifier
+ 
+ #### 2. From the server like Vapor
+ 
+ ## Part 5: More about App Clip
+ 
+ See more about App Clip here. [Creating an App Clip with XCode ](https://developer.apple.com/documentation/app_clips/creating_an_app_clip_with_xcode) from Apple.
 
 ### A. Definition and Overview
 
@@ -140,73 +148,15 @@ App Clips can be used in various scenarios like electronic commerce, parking, an
 
 // Code Example: Basic structure of an App Clip in Swift
 
-import UIKit
-import AppClip
-
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow?
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Setup your App Clip's initial view controller here
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        let mainViewController = UIViewController()
-        mainViewController.view.backgroundColor = UIColor.white
-        self.window?.rootViewController = mainViewController
-        self.window?.makeKeyAndVisible()
-        return true
-    }
-}
-
-/*:
-The above code demonstrates a simple structure of an App Clip in Swift. The `AppDelegate` class is the entry point for the App Clip, setting up the initial view controller.
-
-Now, let's look at a simple use case implementation for an App Clip.
-*/
-
-// Code Example: A use case implementation for an App Clip
-
-import CoreLocation
-
-
-class ParkingAppClipDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow?
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Setup your Parking App Clip's initial view controller here
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        let mainViewController = ParkingViewController()
-        self.window?.rootViewController = mainViewController
-        self.window?.makeKeyAndVisible()
-        return true
-    }
-}
-
-class ParkingViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        // Additional setup for your parking App Clip
-    }
-}
-
 /*:
 Let's look at a SwiftUI implementation for an App Clip.
 */
-import SwiftUI
 
-//struct ParkingAppClip: App {
-//    var body: some Scene {
-//        WindowGroup {
-//            ContentView()
-//        }
-//    }
-//}
+import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Welcome to the Parking App Clip!")
+        Text("Welcome to the App Clip!")
             .font(.title)
             .padding()
         // Additional UI components and logic for your parking App Clip
@@ -214,7 +164,7 @@ struct ContentView: View {
 }
 
 /*:
- ## Part 2: Technical Overview of App Clips
+ ## Part 6: Technical Overview of App Clips
  
  ### A. Architecture and Components
  App Clips are a great way for users to quickly access and interact with a part of your app. Understanding the architecture and components is crucial for efficient development.
@@ -254,322 +204,8 @@ struct FullAppView: View {
  #### 2. Optimizing for Fast Downloads and Launches
  To ensure a good user experience, focus on optimizing your App Clip for quick downloads and launches. This involves efficient coding practices and asset management.
  */
-
 /*:
-## Part 3: Designing App Clips
-
-### A. User Experience Principles
-
-App Clips are designed to offer a fast, reliable, and engaging experience to users. They should be intuitive and focus on the core functionality of the app.
-
-#### 1. Streamlined and Intuitive Design
-- Minimalistic design focusing on the primary task.
-- Reduce the number of steps needed to complete an action.
-
-#### 2. Key Focus Areas - Speed and Ease of Use
-- Prioritize quick loading and performance.
-- Implement easy authentication methods like Apple ID or Sign in with Apple.
-
-### B. Designing for Specific Use Cases
-
-App Clips should be tailored to specific scenarios, providing just enough functionality to complete the task at hand.
-
-#### 1. Examples of Successful App Clip Implementations
-- E-commerce apps allowing quick purchase.
-- Restaurant apps for fast menu access and ordering.
-
-#### 2. Best Practices in UI/UX Design for App Clips
-- Use familiar UI elements from iOS.
-- Provide clear call-to-action buttons.
-
-*/
-
-// MARK: - SwiftUI Example: Quick Purchase App Clip
-
-struct QuickPurchaseAppClip: View {
-    @State private var product: String = ""
-    
-    var body: some View {
-        VStack {
-            Text("Quick Purchase")
-                .font(.largeTitle)
-                .padding()
-
-            TextField("Enter product name", text: $product)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-
-            Button("Buy Now") {
-                // Implementation for purchase action
-            }
-            .padding()
-            .foregroundColor(.white)
-            .background(Color.blue)
-            .cornerRadius(8)
-        }
-    }
-}
-
-// MARK: - SwiftUI Example: Fast Menu Access App Clip
-
-struct FastMenuAccessAppClip: View {
-    @State private var selectedDish: String = ""
-    let menuItems = ["Pizza", "Burger", "Sushi"]
-
-    var body: some View {
-        VStack {
-            Text("Fast Menu")
-                .font(.largeTitle)
-                .padding()
-
-            Picker("Select Dish", selection: $selectedDish) {
-                ForEach(menuItems, id: \.self) {
-                    Text($0)
-                }
-            }
-            .pickerStyle(WheelPickerStyle())
-            .padding()
-
-            Button("Order Now") {
-                // Implementation for order action
-            }
-            .padding()
-            .foregroundColor(.white)
-            .background(Color.green)
-            .cornerRadius(8)
-        }
-    }
-}
-/*:
-## Part 4: Developing App Clips with XCode
-
-### A. Setting Up Your Development Environment
-
-#### 1. Required tools and software versions.
-- XCode 12 or later
-- iOS 14 SDK or later
-- An Apple Developer account
-
-#### 2. Configuring XCode for App Clip development.
-To configure XCode for App Clip development, you need to create a new App Clip target in your existing app project.
-*/
-
-// Code to demonstrate how to add an App Clip target programmatically (for illustration only)
-// Usually, this is done through the XCode UI
-func addAppClipTarget() {
-    print("App Clip target added to the project.")
-}
-addAppClipTarget()
-
-/*:
-### B. Building an App Clip
-
-#### 1. Step-by-step guide to creating your first App Clip.
-First, design a simplified version of your app's UI that focuses on the core functionality you want to offer in the App Clip.
-*/
-
-// Example SwiftUI code for a basic App Clip interface
-struct AppClipView2: View {
-    var body: some View {
-        Text("Welcome to My App Clip!")
-            .font(.title)
-            .padding()
-    }
-}
-
-/*:
-#### 2. Integrating with the main app.
-Ensure that your App Clip shares the same bundle identifier as your main app but with `.clip` as a suffix.
-*/
-
-// Code to illustrate the concept (this is usually set in the project settings, not in code)
-let mainBundleIdentifier = "com.example.myapp"
-let appClipBundleIdentifier = "\(mainBundleIdentifier).clip"
-print("Main App Bundle Identifier: \(mainBundleIdentifier)")
-print("App Clip Bundle Identifier: \(appClipBundleIdentifier)")
-
-/*:
-### C. Advanced Features and Techniques
-
-#### 1. Implementing location-based services.
-Use CoreLocation to add location-based services to your App Clip.
-*/
-
-// Example code for using CoreLocation in an App Clip (simplified for illustration)
-import CoreLocation
-
-let locationManager = CLLocationManager()
-locationManager.requestWhenInUseAuthorization()
-
-/*:
-#### 2. Leveraging Apple Pay and Sign In with Apple.
-Integrate Apple Pay and Sign In with Apple for a seamless user experience.
-*/
-
-// Pseudo code to demonstrate integration points
-func integrateApplePay() {
-    print("Apple Pay integrated successfully.")
-}
-
-func integrateSignInWithApple() {
-    print("Sign In with Apple integrated successfully.")
-}
-
-integrateApplePay()
-integrateSignInWithApple()
-
-/*:
-## Part 5: Testing and Debugging
-
-### A. Simulating App Clips in XCode
-
-#### 1. Using simulators for different iOS devices
-It's crucial to test App Clips on various iOS devices to ensure compatibility and performance. XCode's simulator allows you to emulate different devices.
-
-#### 2. Testing different user scenarios
-Simulate real-world user interactions to test the user flow and functionality of your App Clip.
-
-### B. Debugging Common Issues
-
-#### 1. Identifying and resolving common bugs
-Common bugs in App Clips can include issues with URL handling, data persistence, and UI glitches.
-
-#### 2. Performance optimization
-Optimizing your App Clip for performance is key to providing a smooth user experience.
-
-*/
-
-// Example Code:
-
-struct ContentView3: View {
-    var body: some View {
-        Text("Hello, App Clips!")
-            .padding()
-    }
-}
-
-// Example of Debugging
-func debugExample() {
-    let expectedOutput = "Expected Output"
-    let actualOutput = "Actual Output"
-
-    assert(expectedOutput == actualOutput, "Debugging: The outputs do not match.")
-}
-
-/*:
-## Example Explanation
-
-In the `ContentView`, we simply display a text greeting. This can be part of your App Clip's interface.
-
-The `debugExample` function demonstrates a basic debugging scenario where you check if the expected output matches the actual output. You can replace these with real data checks relevant to your App Clip.
-*/
-
-/*:
-## Part 6: Deploying and Marketing App Clips
-
-### A. App Store Guidelines and Submission
-
-#### 1. Compliance with Apple’s guidelines.
-- Importance of adhering to Apple's guidelines for App Clips.
-- Emphasizing aspects like size limitations, functionality, and user experience.
-
-#### 2. The submission and review process.
-- Detailing the process of submitting App Clips to the App Store.
-- Setting up App Clip experiences in App Store Connect.
-- Highlighting common pitfalls and tips for a smooth review process.
-
-### B. Marketing Strategies
-
-#### 1. Promoting your App Clip.
-- Explaining strategies for promoting App Clips.
-- Using QR codes, NFC tags, and links in marketing materials.
-- Importance of a strong call-to-action.
-
-#### 2. Integrating with marketing campaigns.
-- Integrating App Clips into broader marketing campaigns.
-- Tracking and analytics considerations for measuring success.
-
-*/
-
-import SwiftUI
-import PlaygroundSupport
-
-struct ContentView4: View {
-    var body: some View {
-        Text("Hello, App Clips!")
-    }
-}
-/*:
- ## Part 7: Case Studies and Real-World Examples
-
- ### Key Takeaways from Successful App Clips
- - **Instant Accessibility**: Successful App Clips offer immediate utility.
- - **Seamless User Experience**: They provide a smooth and intuitive interface.
- - **Relevant Functionality**: They focus on delivering core functionalities quickly.
-
- #### 1. SwiftUI Example: Simple Ordering System App Clip
- This example demonstrates a basic ordering system, showcasing the principles of instant accessibility and relevant functionality.
- */
-
-struct SimpleOrderingSystemView: View {
-    var body: some View {
-        NavigationView {
-            List {
-                Text("Item 1")
-                Text("Item 2")
-                Text("Item 3")
-            }
-            .navigationBarTitle("Quick Order")
-        }
-    }
-}
-
-/*:
- ### Challenges Faced and How They Were Overcome
-
- #### 1. Common Challenges:
- - **Size Limitations**: App Clips have a download size limit, requiring efficient use of resources.
- - **User Engagement**: Keeping the user engaged within the limited scope of an App Clip.
- - **Transition to Full App**: Encouraging users to download the full app for more features.
-
- #### 2. SwiftUI Example: Efficient UI Design
- Below is an example of an efficient UI design that considers the size limitations.
- */
-
-struct EfficientUIDesignView: View {
-    var body: some View {
-        VStack {
-            Text("Welcome to App Clip")
-                .font(.headline)
-            Spacer()
-            Button("Learn More") {
-                // Action to prompt for full app download
-            }
-            .buttonStyle(BorderlessButtonStyle())
-        }
-        .padding()
-    }
-}
-
-// MARK: - Playground Preview
-struct ContentView6: View {
-    var body: some View {
-        TabView {
-            SimpleOrderingSystemView()
-                .tabItem {
-                    Label("Order System", systemImage: "cart")
-                }
-
-            EfficientUIDesignView()
-                .tabItem {
-                    Label("Efficient UI", systemImage: "speedometer")
-                }
-        }
-    }
-}
-
-/*:
-## Part 8: Future of App Clips
+## Part 7: Future of App Clips
 
 ### A. Emerging Trends and Predictions
 
@@ -616,4 +252,3 @@ This is a very basic AR setup. In a real-world App Clip, you would add more inte
 Remember, the key to a successful App Clip is to provide a focused, fast, and engaging experience that encourages users to download the full app for more features.
 
 */
-
