@@ -1,0 +1,695 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		351967052AD5B2A000890712 /* BlueDevilBitesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351967042AD5B2A000890712 /* BlueDevilBitesApp.swift */; };
+		351967072AD5B2A000890712 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351967062AD5B2A000890712 /* ContentView.swift */; };
+		351967092AD5B2A100890712 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 351967082AD5B2A100890712 /* Assets.xcassets */; };
+		3519670C2AD5B2A100890712 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3519670B2AD5B2A100890712 /* Preview Assets.xcassets */; };
+		35197E282B03D7380051292C /* RestaurantList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35197E272B03D7380051292C /* RestaurantList.swift */; };
+		35197E2C2B03D78D0051292C /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35197E2B2B03D78D0051292C /* LaunchScreen.swift */; };
+		35197E2F2B03D91F0051292C /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35197E2E2B03D91F0051292C /* AppCoordinator.swift */; };
+		35197E312B03DA920051292C /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35197E302B03DA920051292C /* HelperFunctions.swift */; };
+		35197E352B03DEC30051292C /* res_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 35197E342B03DEC30051292C /* res_data.json */; };
+		356141FA2B105D5100059AED /* ScoreCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356141F92B105D5100059AED /* ScoreCircleView.swift */; };
+		356141FB2B105D5100059AED /* ScoreCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356141F92B105D5100059AED /* ScoreCircleView.swift */; };
+		35A6D4112B05D49D0090673F /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A6D4102B05D49D0090673F /* CommentView.swift */; };
+		35A6D4132B05D7320090673F /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A6D4122B05D7320090673F /* StarRatingView.swift */; };
+		35CA22172AF9DC1300F05EFC /* DataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA22162AF9DC1300F05EFC /* DataStructures.swift */; };
+		35CA221B2AF9DF3200F05EFC /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA221A2AF9DF3200F05EFC /* DataModel.swift */; };
+		35E9635A2B053F73004066C3 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E963592B053F73004066C3 /* SearchBar.swift */; };
+		35E9635E2B054D75004066C3 /* RestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9635D2B054D75004066C3 /* RestaurantDetailView.swift */; };
+		35E9FFF52B048F6D0069AEC9 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9FFF42B048F6D0069AEC9 /* TagView.swift */; };
+		35E9FFF72B048FC20069AEC9 /* FeaturedRestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9FFF62B048FC20069AEC9 /* FeaturedRestaurantView.swift */; };
+		35E9FFF92B049AEA0069AEC9 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9FFF82B049AEA0069AEC9 /* SearchView.swift */; };
+		BE09E3E52B0BF745003E8536 /* blueclipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE09E3E42B0BF745003E8536 /* blueclipApp.swift */; };
+		BE09E3E72B0BF745003E8536 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE09E3E62B0BF745003E8536 /* ContentView.swift */; };
+		BE09E3E92B0BF748003E8536 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE09E3E82B0BF748003E8536 /* Assets.xcassets */; };
+		BE09E3EC2B0BF748003E8536 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE09E3EB2B0BF748003E8536 /* Preview Assets.xcassets */; };
+		BE09E3F12B0BF748003E8536 /* blueclip.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = BE09E3E22B0BF745003E8536 /* blueclip.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BE09E3F62B0BFCE5003E8536 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA221A2AF9DF3200F05EFC /* DataModel.swift */; };
+		BE09E3F72B0BFD10003E8536 /* DataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CA22162AF9DC1300F05EFC /* DataStructures.swift */; };
+		BE09E3F92B0C0539003E8536 /* blueclipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE09E3F82B0C0539003E8536 /* blueclipModel.swift */; };
+		BE09E3FA2B0C08F1003E8536 /* RestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9635D2B054D75004066C3 /* RestaurantDetailView.swift */; };
+		BE09E3FB2B0C090D003E8536 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A6D4102B05D49D0090673F /* CommentView.swift */; };
+		BE09E3FC2B0C090F003E8536 /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A6D4122B05D7320090673F /* StarRatingView.swift */; };
+		BE3FF02F2B0D239F009C381C /* res_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 35197E342B03DEC30051292C /* res_data.json */; };
+		BEA507492B0D5AF500FAC6FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 351967082AD5B2A100890712 /* Assets.xcassets */; };
+		BEA5074B2B0D655A00FAC6FE /* ClipRestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA5074A2B0D655A00FAC6FE /* ClipRestaurantDetailView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BE09E3EF2B0BF748003E8536 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 351966F92AD5B2A000890712 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE09E3E12B0BF745003E8536;
+			remoteInfo = blueclip;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BE09E3F22B0BF748003E8536 /* Embed App Clips */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/AppClips";
+			dstSubfolderSpec = 16;
+			files = (
+				BE09E3F12B0BF748003E8536 /* blueclip.app in Embed App Clips */,
+			);
+			name = "Embed App Clips";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		351967012AD5B2A000890712 /* BlueDevilBites.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueDevilBites.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		351967042AD5B2A000890712 /* BlueDevilBitesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueDevilBitesApp.swift; sourceTree = "<group>"; };
+		351967062AD5B2A000890712 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		351967082AD5B2A100890712 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3519670B2AD5B2A100890712 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		35197E272B03D7380051292C /* RestaurantList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantList.swift; sourceTree = "<group>"; };
+		35197E2B2B03D78D0051292C /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
+		35197E2E2B03D91F0051292C /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		35197E302B03DA920051292C /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
+		35197E342B03DEC30051292C /* res_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = res_data.json; path = ../../res_data.json; sourceTree = "<group>"; };
+		352FB7A92B156E7600CDCA59 /* AppClipTutorial.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AppClipTutorial.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		35442B742B0EAA670031D1A1 /* BlueDevilBites.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BlueDevilBites.entitlements; sourceTree = "<group>"; };
+		356141F92B105D5100059AED /* ScoreCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCircleView.swift; sourceTree = "<group>"; };
+		35A6D4102B05D49D0090673F /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
+		35A6D4122B05D7320090673F /* StarRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
+		35CA22162AF9DC1300F05EFC /* DataStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructures.swift; sourceTree = "<group>"; };
+		35CA22192AF9DC6700F05EFC /* TestCode.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TestCode.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		35CA221A2AF9DF3200F05EFC /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		35E963592B053F73004066C3 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		35E9635D2B054D75004066C3 /* RestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailView.swift; sourceTree = "<group>"; };
+		35E9FFF42B048F6D0069AEC9 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		35E9FFF62B048FC20069AEC9 /* FeaturedRestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedRestaurantView.swift; sourceTree = "<group>"; };
+		35E9FFF82B049AEA0069AEC9 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		BE09E3E22B0BF745003E8536 /* blueclip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = blueclip.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE09E3E42B0BF745003E8536 /* blueclipApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = blueclipApp.swift; sourceTree = "<group>"; };
+		BE09E3E62B0BF745003E8536 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BE09E3E82B0BF748003E8536 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BE09E3EB2B0BF748003E8536 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BE09E3ED2B0BF748003E8536 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE09E3EE2B0BF748003E8536 /* blueclip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = blueclip.entitlements; sourceTree = "<group>"; };
+		BE09E3F82B0C0539003E8536 /* blueclipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = blueclipModel.swift; sourceTree = "<group>"; };
+		BEA5074A2B0D655A00FAC6FE /* ClipRestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipRestaurantDetailView.swift; sourceTree = "<group>"; };
+		BEA5074C2B0DB9D200FAC6FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		351966FE2AD5B2A000890712 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE09E3DF2B0BF745003E8536 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		351966F82AD5B2A000890712 = {
+			isa = PBXGroup;
+			children = (
+				352FB7A92B156E7600CDCA59 /* AppClipTutorial.playground */,
+				351967032AD5B2A000890712 /* BlueDevilBites */,
+				BE09E3E32B0BF745003E8536 /* blueclip */,
+				351967022AD5B2A000890712 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		351967022AD5B2A000890712 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				351967012AD5B2A000890712 /* BlueDevilBites.app */,
+				BE09E3E22B0BF745003E8536 /* blueclip.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		351967032AD5B2A000890712 /* BlueDevilBites */ = {
+			isa = PBXGroup;
+			children = (
+				35442B742B0EAA670031D1A1 /* BlueDevilBites.entitlements */,
+				BEA5074C2B0DB9D200FAC6FE /* Info.plist */,
+				35197E342B03DEC30051292C /* res_data.json */,
+				35197E2D2B03D90B0051292C /* Coordinator */,
+				35CA22182AF9DC4F00F05EFC /* PlayGround */,
+				35CA22152AF9DA5200F05EFC /* Utilities */,
+				35CA22142AF9DA4E00F05EFC /* View */,
+				35CA22132AF9DA4800F05EFC /* Model */,
+				351967042AD5B2A000890712 /* BlueDevilBitesApp.swift */,
+				351967082AD5B2A100890712 /* Assets.xcassets */,
+				3519670A2AD5B2A100890712 /* Preview Content */,
+			);
+			path = BlueDevilBites;
+			sourceTree = "<group>";
+		};
+		3519670A2AD5B2A100890712 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				3519670B2AD5B2A100890712 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		35197E242B03D7170051292C /* Restaurants */ = {
+			isa = PBXGroup;
+			children = (
+				35197E272B03D7380051292C /* RestaurantList.swift */,
+				35E9635D2B054D75004066C3 /* RestaurantDetailView.swift */,
+			);
+			path = Restaurants;
+			sourceTree = "<group>";
+		};
+		35197E2D2B03D90B0051292C /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				35197E2E2B03D91F0051292C /* AppCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		35CA22132AF9DA4800F05EFC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				35CA22162AF9DC1300F05EFC /* DataStructures.swift */,
+				35CA221A2AF9DF3200F05EFC /* DataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		35CA22142AF9DA4E00F05EFC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				35E9FFF32B048F5C0069AEC9 /* HelperView */,
+				35197E242B03D7170051292C /* Restaurants */,
+				351967062AD5B2A000890712 /* ContentView.swift */,
+				35197E2B2B03D78D0051292C /* LaunchScreen.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		35CA22152AF9DA5200F05EFC /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				35197E302B03DA920051292C /* HelperFunctions.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		35CA22182AF9DC4F00F05EFC /* PlayGround */ = {
+			isa = PBXGroup;
+			children = (
+				35CA22192AF9DC6700F05EFC /* TestCode.playground */,
+			);
+			path = PlayGround;
+			sourceTree = "<group>";
+		};
+		35E9FFF32B048F5C0069AEC9 /* HelperView */ = {
+			isa = PBXGroup;
+			children = (
+				35E9FFF42B048F6D0069AEC9 /* TagView.swift */,
+				35E9FFF62B048FC20069AEC9 /* FeaturedRestaurantView.swift */,
+				35E9FFF82B049AEA0069AEC9 /* SearchView.swift */,
+				35E963592B053F73004066C3 /* SearchBar.swift */,
+				35A6D4102B05D49D0090673F /* CommentView.swift */,
+				35A6D4122B05D7320090673F /* StarRatingView.swift */,
+				356141F92B105D5100059AED /* ScoreCircleView.swift */,
+			);
+			path = HelperView;
+			sourceTree = "<group>";
+		};
+		BE09E3E32B0BF745003E8536 /* blueclip */ = {
+			isa = PBXGroup;
+			children = (
+				BE09E3E42B0BF745003E8536 /* blueclipApp.swift */,
+				BE09E3E62B0BF745003E8536 /* ContentView.swift */,
+				BE09E3F82B0C0539003E8536 /* blueclipModel.swift */,
+				BEA5074A2B0D655A00FAC6FE /* ClipRestaurantDetailView.swift */,
+				BE09E3E82B0BF748003E8536 /* Assets.xcassets */,
+				BE09E3ED2B0BF748003E8536 /* Info.plist */,
+				BE09E3EE2B0BF748003E8536 /* blueclip.entitlements */,
+				BE09E3EA2B0BF748003E8536 /* Preview Content */,
+			);
+			path = blueclip;
+			sourceTree = "<group>";
+		};
+		BE09E3EA2B0BF748003E8536 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BE09E3EB2B0BF748003E8536 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		351967002AD5B2A000890712 /* BlueDevilBites */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3519670F2AD5B2A100890712 /* Build configuration list for PBXNativeTarget "BlueDevilBites" */;
+			buildPhases = (
+				351966FD2AD5B2A000890712 /* Sources */,
+				351966FE2AD5B2A000890712 /* Frameworks */,
+				351966FF2AD5B2A000890712 /* Resources */,
+				BE09E3F22B0BF748003E8536 /* Embed App Clips */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE09E3F02B0BF748003E8536 /* PBXTargetDependency */,
+			);
+			name = BlueDevilBites;
+			productName = BlueDevilBites;
+			productReference = 351967012AD5B2A000890712 /* BlueDevilBites.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BE09E3E12B0BF745003E8536 /* blueclip */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE09E3F52B0BF748003E8536 /* Build configuration list for PBXNativeTarget "blueclip" */;
+			buildPhases = (
+				BE09E3DE2B0BF745003E8536 /* Sources */,
+				BE09E3DF2B0BF745003E8536 /* Frameworks */,
+				BE09E3E02B0BF745003E8536 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = blueclip;
+			productName = blueclip;
+			productReference = BE09E3E22B0BF745003E8536 /* blueclip.app */;
+			productType = "com.apple.product-type.application.on-demand-install-capable";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		351966F92AD5B2A000890712 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					351967002AD5B2A000890712 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					BE09E3E12B0BF745003E8536 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 351966FC2AD5B2A000890712 /* Build configuration list for PBXProject "BlueDevilBites" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 351966F82AD5B2A000890712;
+			productRefGroup = 351967022AD5B2A000890712 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				351967002AD5B2A000890712 /* BlueDevilBites */,
+				BE09E3E12B0BF745003E8536 /* blueclip */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		351966FF2AD5B2A000890712 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3519670C2AD5B2A100890712 /* Preview Assets.xcassets in Resources */,
+				351967092AD5B2A100890712 /* Assets.xcassets in Resources */,
+				35197E352B03DEC30051292C /* res_data.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE09E3E02B0BF745003E8536 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE09E3EC2B0BF748003E8536 /* Preview Assets.xcassets in Resources */,
+				BE09E3E92B0BF748003E8536 /* Assets.xcassets in Resources */,
+				BEA507492B0D5AF500FAC6FE /* Assets.xcassets in Resources */,
+				BE3FF02F2B0D239F009C381C /* res_data.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		351966FD2AD5B2A000890712 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35197E2C2B03D78D0051292C /* LaunchScreen.swift in Sources */,
+				35197E282B03D7380051292C /* RestaurantList.swift in Sources */,
+				35CA22172AF9DC1300F05EFC /* DataStructures.swift in Sources */,
+				35E9635E2B054D75004066C3 /* RestaurantDetailView.swift in Sources */,
+				35197E312B03DA920051292C /* HelperFunctions.swift in Sources */,
+				35CA221B2AF9DF3200F05EFC /* DataModel.swift in Sources */,
+				35E9635A2B053F73004066C3 /* SearchBar.swift in Sources */,
+				35E9FFF72B048FC20069AEC9 /* FeaturedRestaurantView.swift in Sources */,
+				35A6D4132B05D7320090673F /* StarRatingView.swift in Sources */,
+				356141FA2B105D5100059AED /* ScoreCircleView.swift in Sources */,
+				35197E2F2B03D91F0051292C /* AppCoordinator.swift in Sources */,
+				351967072AD5B2A000890712 /* ContentView.swift in Sources */,
+				351967052AD5B2A000890712 /* BlueDevilBitesApp.swift in Sources */,
+				35E9FFF52B048F6D0069AEC9 /* TagView.swift in Sources */,
+				35A6D4112B05D49D0090673F /* CommentView.swift in Sources */,
+				35E9FFF92B049AEA0069AEC9 /* SearchView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE09E3DE2B0BF745003E8536 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE09E3E72B0BF745003E8536 /* ContentView.swift in Sources */,
+				356141FB2B105D5100059AED /* ScoreCircleView.swift in Sources */,
+				BE09E3FC2B0C090F003E8536 /* StarRatingView.swift in Sources */,
+				BE09E3F72B0BFD10003E8536 /* DataStructures.swift in Sources */,
+				BEA5074B2B0D655A00FAC6FE /* ClipRestaurantDetailView.swift in Sources */,
+				BE09E3FA2B0C08F1003E8536 /* RestaurantDetailView.swift in Sources */,
+				BE09E3E52B0BF745003E8536 /* blueclipApp.swift in Sources */,
+				BE09E3F92B0C0539003E8536 /* blueclipModel.swift in Sources */,
+				BE09E3FB2B0C090D003E8536 /* CommentView.swift in Sources */,
+				BE09E3F62B0BFCE5003E8536 /* DataModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BE09E3F02B0BF748003E8536 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE09E3E12B0BF745003E8536 /* blueclip */;
+			targetProxy = BE09E3EF2B0BF748003E8536 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3519670D2AD5B2A100890712 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3519670E2AD5B2A100890712 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		351967102AD5B2A100890712 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BlueDevilBites/BlueDevilBites.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BlueDevilBites/Preview Content\"";
+				DEVELOPMENT_TEAM = PHYL88U9GR;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BlueDevilBites/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = bluedevilbites;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		351967112AD5B2A100890712 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BlueDevilBites/BlueDevilBites.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BlueDevilBites/Preview Content\"";
+				DEVELOPMENT_TEAM = PHYL88U9GR;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BlueDevilBites/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = bluedevilbites;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BE09E3F32B0BF748003E8536 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = blueclip/blueclip.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"blueclip/Preview Content\"";
+				DEVELOPMENT_TEAM = PHYL88U9GR;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = blueclip/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BlueDevilBites;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = bluedevilbites.clip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BE09E3F42B0BF748003E8536 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = blueclip/blueclip.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"blueclip/Preview Content\"";
+				DEVELOPMENT_TEAM = PHYL88U9GR;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = blueclip/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BlueDevilBites;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = bluedevilbites.clip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		351966FC2AD5B2A000890712 /* Build configuration list for PBXProject "BlueDevilBites" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3519670D2AD5B2A100890712 /* Debug */,
+				3519670E2AD5B2A100890712 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3519670F2AD5B2A100890712 /* Build configuration list for PBXNativeTarget "BlueDevilBites" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				351967102AD5B2A100890712 /* Debug */,
+				351967112AD5B2A100890712 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE09E3F52B0BF748003E8536 /* Build configuration list for PBXNativeTarget "blueclip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE09E3F32B0BF748003E8536 /* Debug */,
+				BE09E3F42B0BF748003E8536 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 351966F92AD5B2A000890712 /* Project object */;
+}
