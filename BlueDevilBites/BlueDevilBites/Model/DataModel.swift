@@ -10,9 +10,9 @@ import Combine
 import SwiftUI
 
 // use for docker test
-//let vaporServerAddress = "vcm-37065.vm.duke.edu:8080"
+let vaporServerAddress = "vcm-37065.vm.duke.edu:8080"
 // use for local test
-let vaporServerAddress = "127.0.0.1:8080"
+//let vaporServerAddress = "192.168.0.200:8080"
 
 let streamerAccessToken = "4fb83524bf2e30e93fd31d18f4143c49"
 let sandBoxFileName = "ResData.json"
