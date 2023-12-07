@@ -37,7 +37,7 @@ This project aims to demonstrate the implementation of an App Clip using SwiftUI
     - We utilized the Vapor server, you can download it and install our server in the "Server branch"
 
 ### Installation & Setup:
-1. Clone this repository.
+1. Clone this repository. Master branch is for our app and app clip. Server branch is for the vapor server.
 2. Open the `.xcodeproj` file with XCode.
 3. Ensure that the required dependencies and libraries are installed.
 4. Run the project on your desired simulator or device.
